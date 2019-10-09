@@ -1,0 +1,81 @@
+# The namespace to deploy your application
+global:
+  namespace: newtest
+
+# Default values for webapp.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+# REMOVE THIS SECTION IF YOUR APPLICATION DOES NOT HAVE A FRONT END
+frontend:
+  #name is a DNS-1035 label and must consist of lower case alphanumeric characters or '-', start with an alphabetic character, and end with an alphanumeric character (e.g. 'my-name',  or 'abc-123')
+  name: testfrontend
+  port: 80
+  replicaCount: 1
+  proxy:
+    incomingPath: /newtestfrontend/
+    containerPath: "" # The empty string "" means use same as incomingPath, otherwise the value in the string will replace the value of incomingPath when traffic is sent to the application in the deployed container
+  image:
+    repository: nginx
+    tag: latest
+    pullPolicy: Always
+  #Volumes used by the application are placed here
+#  volumes:
+#    vol1: /var/log/nginx
+#    vol2: /something/else/in/container
+  #Environment variables used by the application are placed here.
+  #Define environment variables for your container using the format below.
+#  env:
+#    ENV_1: test_env1
+#    ENV_2: test_env2
+#    ENV_3: test_env3
+
+# Default values for a backend API web service.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+# REMOVE THIS SECTION IF YOUR APPLICATION DOES NOT HAVE A BACKEND
+backend:
+  #name is a DNS-1035 label and must consist of lower case alphanumeric characters or '-', start with an alphabetic character, and end with an alphanumeric character (e.g. 'my-name',  or 'abc-123')
+  name: testbackend
+  port: 80
+  replicaCount: 1
+  proxy:
+    incomingPath: /newtestbackend/
+    containerPath: "" # The empty string "" means use same as incomingPath, otherwise the value in the string will replace the value of incomingPath when traffic is sent to the application in the deployed container
+  image:
+    repository: nginx
+    tag: latest
+    pullPolicy: Always
+  #Volumes used by the application are placed here
+#  volumes:
+#    vol1: /var/lib/mysql
+#    vol2: /something/else/in/container
+  #Environment variables used by the application are placed here.
+  #Define environment variables for your container using the format below.
+#  env:
+#    ENV_1: test_env1
+#    ENV_2: test_env2
+#    ENV_3: test_env3
+
+# Default values for a database.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+# REMOVE THIS SECTION IF YOUR APPLICATION DOES NOT HAVE A DATABASE
+database:
+  #name is a DNS-1035 label and must consist of lower case alphanumeric characters or '-', start with an alphabetic character, and end with an alphanumeric character (e.g. 'my-name',  or 'abc-123')
+  name: testdatabase
+  port: 5432
+  replicaCount: 1
+  image:
+    repository: postgres
+    tag: latest
+    pullPolicy: Always
+  #Volumes used by the application are placed here
+#  volumes:
+#    vol1: /var/lib/mysql
+#    vol2: /something/else/in/container
+  #Environment variables used by the application are placed here.
+  #Define environment variables for your container using the format below.
+#  env:
+#    ENV_1: test_env1
+#    ENV_2: test_env2
+#    ENV_3: test_env3

@@ -1,0 +1,65 @@
+kind: pipeline
+name: default
+
+steps:
+# Define the steps to test, package, and deploy your application
+# For example steps to build and deploy a java application may look like this
+# Run Java Unit Tests and build WAR file
+#- name: build_java_server
+#  image: maven:3.6.1-jdk-8
+#  commands:
+#  - cd directory_for_java_project
+#  - mvn clean package
+#
+# Create Docker image from WAR file and push to HDAP Docker registry
+#- name: deploy_java_server_image
+#  image: plugins/docker
+#  settings:
+#    repo: gt-build.hdap.gatech.edu/dev-omhonfhirapp
+#    context: omhserver
+#    dockerfile: omhserver/DroneDockerfile
+#    tags:
+#      - latest
+#
+# Here is an example more generic step to deploy to the HDAP Docker registry
+#- name: deploy_application_image
+#  image: plugins/docker
+#  settings:
+#    repo: gt-build.hdap.gatech.edu/myapp
+#    context: directory_of_myapp_code
+#    dockerfile: directory_of_myapp_code/Dockerfile
+#    tags:
+#      - latest
+
+ #Run help to build the Kubernetes config file to deploy the application
+#- name: deploy_to_k8s
+#  image: plugins/docker
+#  settings:
+#    context: .
+#    dockerfile: Dockerfile
+- name: deploy_to_k8s
+  image: docker:dind
+  volumes:
+  - name: dockersock
+    path: /var/run
+  commands:
+    - sleep 10
+    - docker build -t deploytok8s  -f ./hdap/deploy/Dockerfile .
+    - docker run deploytok8s
+
+services:
+  - name: docker
+    image: docker:dind
+    privileged: true
+    volumes:
+    - name: dockersock
+      path: /var/run
+
+volumes:
+- name: dockersock
+  temp: {}
+trigger:
+  branch:
+  - master
+  event:
+  - push
