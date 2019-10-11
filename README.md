@@ -6,3 +6,4 @@ A tool to help guide people in the direction of meal planning based on current c
 
 # Team Members
 - Donald Ford
+- Dale Park
