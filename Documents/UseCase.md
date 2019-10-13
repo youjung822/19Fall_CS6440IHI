@@ -12,7 +12,7 @@
 - Pre-conditions: The user should be able to pick his/her medical conditions, food allergies and preferred ingredients.
 - Post-conditions: The user will see a list of food recipes.
 - Scenarios: 
-  1. User opens food planner and is asked for his/her food allergies and other medical conditions.
-  2. User then picks a few of the ingredients he/she would like to have in the recipes.
-  3. Then the user can search for food recipes based on the conditions 1 and 2.
+  1. The user opens the food planner web application and then he/she can add food allergies and medical conditions.
+  2. The user then picks a few of the ingredients he/she would like to have in the recipes.
+  3. Then the user can search for food recipes based on conditions 1 and 2.
   4. The food planner web application should display the list of food recipes.
