@@ -2,11 +2,13 @@
 
 *This is the template for your use case model. The parts in italics are concise explanations of what should go in the corresponding sections and should not appear in the final document. You will have the chance to update this document during Deliverable 3 if necessary*
 
-**Author**: \<person or team name\>
+**Author**: Andrew Lo Team: Runtime Terror
 
 ## 1 Use Case Diagram
 
 *This section should contain a use case diagram with all the actors and use cases for the system, suitably connected.*
+
+![](./images/use-case-diagram.png)
 
 ## 2 Use Case Descriptions
 
