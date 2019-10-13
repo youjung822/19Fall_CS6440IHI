@@ -15,7 +15,7 @@ steps:
 #- name: deploy_java_server_image
 #  image: plugins/docker
 #  settings:
-#    repo: gt-build.hdap.gatech.edu/dev-omhonfhirapp
+#    repo: build.hdap.gatech.edu/dev-omhonfhirapp
 #    context: omhserver
 #    dockerfile: omhserver/DroneDockerfile
 #    tags:
@@ -25,18 +25,26 @@ steps:
 #- name: deploy_application_image
 #  image: plugins/docker
 #  settings:
-#    repo: gt-build.hdap.gatech.edu/myapp
+#    repo: build.hdap.gatech.edu/myapp
 #    context: directory_of_myapp_code
 #    dockerfile: directory_of_myapp_code/Dockerfile
 #    tags:
 #      - latest
 
- #Run help to build the Kubernetes config file to deploy the application
-#- name: deploy_to_k8s
-#  image: plugins/docker
-#  settings:
-#    context: .
-#    dockerfile: Dockerfile
+# Pull down the templates for deployment to HDAP K8S
+- name: get_chart_builder
+  image: docker:git
+  commands:
+    - git clone -b cs6440 https://github.gatech.edu/es130/HDAP_helm_deploy_templates.git
+
+# Set the namespace to use for deployment
+- name: copy_namespace
+  image: busybox:1.31
+  commands:
+    - userns=`awk '/namespace:/{print $2}' ./values.yaml`
+    - sed -i "s/REPLACE_WITH_NAMESPACE/$userns/g" ./HDAP_helm_deploy_templates/deploy/Dockerfile
+
+# Deploy the application to HDAP K8S
 - name: deploy_to_k8s
   image: docker:dind
   volumes:
@@ -44,7 +52,7 @@ steps:
     path: /var/run
   commands:
     - sleep 10
-    - docker build -t deploytok8s  -f ./hdap/deploy/Dockerfile .
+    - docker build -t deploytok8s  -f ./HDAP_helm_deploy_templates/deploy/Dockerfile .
     - docker run deploytok8s
 
 services:
@@ -60,6 +68,6 @@ volumes:
   temp: {}
 trigger:
   branch:
-  - master
+  - cs6440
   event:
   - push
