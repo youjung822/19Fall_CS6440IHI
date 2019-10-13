@@ -1,20 +1,18 @@
 # Use Case Model
 
-*This is the template for your use case model. The parts in italics are concise explanations of what should go in the corresponding sections and should not appear in the final document. You will have the chance to update this document during Deliverable 3 if necessary*
-
 **Author**: Andrew Lo Team: Runtime Terror
 
 ## 1 Use Case Diagram
-
-*This section should contain a use case diagram with all the actors and use cases for the system, suitably connected.*
 
 ![](./images/use-case-diagram.png)
 
 ## 2 Use Case Descriptions
 
-*For each use case in the use case diagram, this section should contain a description, with the following elements:*
-
-- *Requirements: High-level description of what the use case must allow the user to do.*
-- *Pre-conditions: Conditions that must be true before the use case is run.*
-- *Post-conditions Conditions that must be true once the use case is run.*
-- *Scenarios: Sequence of events that characterize the use case. This part may include multiple scenarios, for normal, alternate, and exceptional event sequences. These scenarios may be expressed as a list of steps in natural language or as sequence diagrams.*
+- Requirements: A user should be able to find food recipes through food planner web application.
+- Pre-conditions: The user should be able to pick his/her medical conditions, food allergies and preferred ingredients.
+- Post-conditions: The user will see a list of food recipes.
+- Scenarios: 
+1. User opens food planner and is asked for his/her food allergies and other medical conditions.
+2. User then picks a few of the ingredients he/she would like to have in the recipes.
+3. Then the user can search for food recipes based on the conditions 1 and 2.
+4. The food planner web application should display the list of food recipes.
