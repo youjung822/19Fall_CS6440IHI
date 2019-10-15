@@ -36,10 +36,12 @@ _Remember to watch the Intro to HDAP lecture prior to starting. The architecture
 ### 2.1 Component Diagram
 
 _This section should provide and describe a diagram that shows the various components and how they are connected. This diagram shows the logical/functional components of the system, where each component represents a cluster of related functionality. In the case of simple systems, where there is a single component, this diagram may be unnecessary; in these cases, simply state so and concisely state why._
+![](./images/component-diagram.png)
 
 ### 2.2 Deployment Diagram
 
 _Remember to watch the Intro to HDAP lecture prior to starting. This section should describe how the different components will be deployed. This will vary by project. Similar to the previous subsection, this diagram may be unnecessary for simple systems; in these cases, simply state so and concisely state why._
+![](./images/deployment-diagram.png)
 
 ## 3 Class and Other Diagrams
 
