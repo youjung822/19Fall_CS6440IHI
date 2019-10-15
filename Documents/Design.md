@@ -1,6 +1,6 @@
 # Design Document
 
-**Author**: Donald Ford
+**Author**: Donald Ford, Youjung Kim
 **Team**: Runtime Terror
 
 ## 1 Design Considerations
@@ -28,6 +28,20 @@ There are still knowledge gaps on how to perform the mapping between ingredients
 ### 1.3 System Environment
 
 _Remember to watch the Intro to HDAP lecture prior to starting. Describe the hardware and software that the system must operate in and interact with._
+
+The application is implemented using Health Data Analytics Platform(HDAP). HDAP is a software platform providing various support on conducting health-oriented projects. It provides healthcare data, tools to analyze the data as well as a healthcare application development and hosting environment and app galleries.
+We will utilize HDAP in terms of accessing FHIR servers and application deployment first.  Furthermore, HDAP has multiple data sets and analytic tools(ATLAS, Jupyter) to support the development of their projects. We will exploit the resources to bring up the best results. 
+ 
+HDAP has a automated development pipeline for Continuous Integration(CI) and Continuous Deployment(CD). The below open source softwares will be engaged with our development process and we will make use of each tool for different purposes. 
+
+* GitHub – hosting service for version control using Git
+* Drone– open source continuous delivery platform
+* Docker Registry – server side application that stores and provides access to Docker images.
+* Helm – a tool for managing configuration and deployment of Kubernetes applications.
+* Rancher – open source Kubernetes management platform
+* Kubernetes –open-source system for automating deployment, scaling, and management of containerized applications.
+* Apache HTTP – open source HTTP server used by HDAP for routing requests to deployed containers
+
 
 ## 2 Architectural Design
 
