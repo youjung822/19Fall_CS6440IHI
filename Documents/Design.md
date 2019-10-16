@@ -30,9 +30,9 @@ There are still knowledge gaps on how to perform the mapping between ingredients
 _Remember to watch the Intro to HDAP lecture prior to starting. Describe the hardware and software that the system must operate in and interact with._
 
 The application is implemented using Health Data Analytics Platform(HDAP). HDAP is a software platform providing various support on conducting health-oriented projects. It provides healthcare data, tools to analyze the data as well as a healthcare application development and hosting environment and app galleries.
-We will utilize HDAP in terms of accessing FHIR servers and application deployment first.  Furthermore, HDAP has multiple data sets and analytic tools(ATLAS, Jupyter) to support the development of their projects. We will exploit the resources to bring up the best results. 
+We will utilize HDAP in terms of accessing FHIR servers and application deployment first.  Furthermore, HDAP has multiple data sets and analytic tools(ATLAS, Jupyter) to support the development of our projects. We will exploit the resources to generate positive results.
  
-HDAP has a automated development pipeline for Continuous Integration(CI) and Continuous Deployment(CD). The below open source softwares will be engaged with our development process and we will make use of each tool for different purposes. 
+HDAP has an automated development pipeline for Continuous Integration(CI) and Continuous Deployment(CD). Listed below are the open source development tools we are engaged with in the development process and we will make use of each tool for different purposes.
 
 * GitHub – hosting service for version control using Git
 * Drone– open source continuous delivery platform
@@ -46,6 +46,8 @@ HDAP has a automated development pipeline for Continuous Integration(CI) and Con
 ## 2 Architectural Design
 
 _Remember to watch the Intro to HDAP lecture prior to starting. The architecture provides the high-level design view of a system and provides a basis for more detailed design work. These subsections describe the top-level components of the system you are building and their relationships._
+
+Below presents the architecture as a series of diagrams; Component Diagram and Deployment Diagram.
 
 ### 2.1 Component Diagram
 
