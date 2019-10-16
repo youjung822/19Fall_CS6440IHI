@@ -35,6 +35,8 @@ For bug tracking our team would be using **Excel sheets**.  Excel sheets can pro
 We will be executing the test cases manually. Our intent was to focus more on finding a better and faster way of developing the App and testing it thoroughly. 
 
 ## 2 Test Cases
+*We are still finalizing the design and the requirements. Once everything is completed, we will have the test cases written as per the system expectations.
+
 | |Purpose |Steps necessary to perform the test|Expected result|Actual result|Pass/Fail|
 |---|:-:|:-:|:-:|:-:|:-:|
 |1|         |                                     |                 |               |           |
