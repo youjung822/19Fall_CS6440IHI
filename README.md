@@ -10,3 +10,6 @@ A tool to help guide people in the direction of meal planning based on current c
 - Andrew Lo
 - Youjung Kim
 - Vaneesh Bahl
+
+# Version
+- Docker 2.1.0.3
