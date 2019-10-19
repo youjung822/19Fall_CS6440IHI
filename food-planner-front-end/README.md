@@ -59,6 +59,20 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
+## How to run with Docker
+Make sure you’re in the directory FoodPlanner2/food-planner-front-end in a terminal or powershell, and build your the app image:
+
+### `docker image build -t foodplannerfront:1.1 .`
+If successful, the build process should end with a message "Successfully tagged foodplannerfront:1.1"
+
+### `docker container run --publish 8000:3000 --detach --name bb foodplannerfront:1.1 `
+Start a container based on your new image. Visit your application in a browser at localhost:8000. You should see the application up and running. 
+
+###  `docker container rm --force bb`
+Once you’re satisfied that your bulletin board container works correctly, delete it:
+
+
+
 ## Learn More
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
