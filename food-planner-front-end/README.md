@@ -1,3 +1,25 @@
+## HOW TO RUN
+
+1. Make sure you are in the food-planner-front-end directory in your terminal
+2. Install yarn with `brew install yarn` or by following the directions [here](https://yarnpkg.com/lang/en/docs/install)
+3. Run `yarn`
+4. Run `yarn start`
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

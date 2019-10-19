@@ -10,3 +10,10 @@ A tool to help guide people in the direction of meal planning based on current c
 - Andrew Lo
 - Youjung Kim
 - Vaneesh Bahl
+
+# Version
+- Front End
+  + Node.js v10.16.3
+  + yarn v1.19.1
+  + npm 6.12.0
+- Docker 2.1.0.3

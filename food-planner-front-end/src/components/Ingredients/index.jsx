@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Checkbox from '@material-ui/core/Checkbox';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
 
-import { Wrapper, Content } from './styles';
+import { Wrapper, Content, FilterHolder, FilterItem } from './styles';
 import { Header, Select, Chips } from '../';
 
 const suggestions = [
@@ -27,6 +29,7 @@ const suggestions = [
 }));
 
 export default function Ingredients({ ingredients, toggleIngredient }) {
+  const [filterByCondition, setFilterByCondition] = useState(false);
   const filteredSuggestions = suggestions.filter(
     ({ value }) => !ingredients.includes(value)
   );
@@ -35,11 +38,28 @@ export default function Ingredients({ ingredients, toggleIngredient }) {
     <Wrapper>
       <Header>My Ingredients</Header>
       <Content>
-        <Select
-          label="Ingredients"
-          suggestions={filteredSuggestions}
-          onChange={toggleIngredient}
-        />
+        <FilterHolder>
+          <Select
+            label="Ingredients"
+            suggestions={filteredSuggestions}
+            onChange={toggleIngredient}
+          />
+          <FilterItem>
+            <FormControlLabel
+              control={
+                <Checkbox
+                  checked={filterByCondition}
+                  onChange={() => setFilterByCondition(!filterByCondition)}
+                  color="primary"
+                  inputProps={{
+                    'aria-label': 'condition checkbox'
+                  }}
+                />
+              }
+              label="Filter by my conditions"
+            />
+          </FilterItem>
+        </FilterHolder>
         <Chips values={ingredients} onDelete={toggleIngredient} />
       </Content>
     </Wrapper>
