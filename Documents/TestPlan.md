@@ -28,7 +28,7 @@ We will stick to the basics of branch coverage and statement coverage techniques
 
 ### 1.4 Bug Tracking
 
-For bug tracking our team would be using **Excel sheets**.  Excel sheets can prove to be a simple yet effective way of tracking the defects. 
+For bug tracking our team would be using **Github Repo - Issues Section**.  Excel sheets can prove to be a simple yet effective way of tracking the defects. 
 
 ### 1.5 Test Case Execution
 
