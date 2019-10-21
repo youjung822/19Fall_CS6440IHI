@@ -1,4 +1,4 @@
-# Test Plan (Version 1.0)
+# Test Plan (Version 2.0)
 
 This test plan is designed to describe the testing strategy, test selection techniques, adequacy criteria, bug tracking and also includes the test cases to be executed to validate the Food Planner Web App.
 
