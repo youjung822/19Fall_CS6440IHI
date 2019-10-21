@@ -15,7 +15,7 @@ The scope of this project is to enable a user to login to the Web App and select
 ## Process Description
 
 Our team will be contributing to work on the below activities, in that manner. But, first we need to define the Communication pathways. We all will be communicating primarily in WhatsApp group chat sessions. Secondary option is Slack. And finally, all the meetings will be held on Google Hangouts.
-The first step was to meet with the assigned TA to our Food Planner App and discuss the expectations and requirements. It was a very successful meeting and our TA - Taylor was able to resolve a lot of our concerns.
+The first step was to meet with the assigned TA to our Food Planner App and discuss the expectations and requirements. It was a very successful meeting and our TA - Taylor was able to resolve a lot of our concerns. We had initially thought to just build the App where we would recommend ingredients based on the conditions/allergies selected by the user. But as per our discussion with Taylor (TA) we are now trying to come up with ideas on how to use the ingredients to further recommend various recipes based on the filter of conditions and ingredients.
 
 Beyond the meeting, our team started doing research on the App and found some similar websites like spoonacular.com or foodplannerapp.com. We got some really good ideas from these Apps, though our App will be different in many ways. 
 
