@@ -1,6 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
-import Select from 'react-select';
+import AsyncSelect from 'react-select/async';
 import { emphasize, makeStyles, useTheme } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import NoSsr from '@material-ui/core/NoSsr';
@@ -190,9 +190,10 @@ const components = {
 
 export default function IntegrationReactSelect({
   label,
-  suggestions,
+  suggestions = [],
   value = null,
-  onChange
+  onChange,
+  loadOptions
 }) {
   const classes = useStyles();
   const theme = useTheme();
@@ -210,7 +211,7 @@ export default function IntegrationReactSelect({
   return (
     <div className={classes.root}>
       <NoSsr>
-        <Select
+        <AsyncSelect
           classes={classes}
           styles={selectStyles}
           inputId="react-select-single"
@@ -225,6 +226,8 @@ export default function IntegrationReactSelect({
           options={suggestions}
           components={components}
           value={value}
+          loadOptions={loadOptions}
+          defaultOptions={suggestions}
           onChange={item => onChange(item.value)}
         />
       </NoSsr>

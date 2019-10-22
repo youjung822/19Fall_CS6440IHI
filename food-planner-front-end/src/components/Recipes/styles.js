@@ -56,3 +56,9 @@ export const MatchingIngredients = styled.div`
   display: flex;
   justify-content: flex-start;
 `;
+
+export const LoadingHolder = styled.div`
+  display: flex;
+  justify-content: center;
+  padding-top: 64px;
+`;

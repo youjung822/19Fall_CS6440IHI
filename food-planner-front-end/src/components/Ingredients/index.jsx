@@ -3,15 +3,22 @@ import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 
 import { Wrapper, Content, FilterHolder, FilterItem } from './styles';
-import { Header, Select, Chips } from '../';
+import { Header, AsyncSelect, Chips } from '../';
 import { lookupIngredients } from '../../lib/ingredients';
 
-export default function Ingredients({ ingredients, toggleIngredient }) {
+export default function Ingredients({
+  ingredients,
+  conditions,
+  toggleIngredient
+}) {
   const [filterByCondition, setFilterByCondition] = useState(false);
 
   const loadOptions = async (inputValue, callback) => {
     if (inputValue.length > 3) {
-      const suggestions = await lookupIngredients(inputValue);
+      const suggestions = await lookupIngredients(
+        inputValue,
+        filterByCondition ? conditions : null
+      );
 
       const filteredSuggestions = suggestions.filter(
         ({ value }) => !ingredients.includes(value)
@@ -26,7 +33,7 @@ export default function Ingredients({ ingredients, toggleIngredient }) {
       <Header>My Ingredients</Header>
       <Content>
         <FilterHolder>
-          <Select
+          <AsyncSelect
             label="Ingredients"
             loadOptions={loadOptions}
             onChange={toggleIngredient}
@@ -43,7 +50,7 @@ export default function Ingredients({ ingredients, toggleIngredient }) {
                   }}
                 />
               }
-              label="Filter by my conditions"
+              label="Filter by my allergies"
             />
           </FilterItem>
         </FilterHolder>
