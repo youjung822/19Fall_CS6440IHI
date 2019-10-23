@@ -6,8 +6,14 @@ A tool to help guide people in the direction of meal planning based on current c
 
 # How to run
 ```
+// build tagged services
 docker-compose build
+
+// start all services
 docker-compose up
+
+// stopping all services
+docker-compose down
 ```
 Frontend URL: http://localhost:3000/  
 Backend URL: http://localhost:8080/  
