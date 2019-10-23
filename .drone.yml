@@ -5,11 +5,11 @@ steps:
 # Define the steps to test, package, and deploy your application
 # For example steps to build and deploy a java application may look like this
 # Run Java Unit Tests and build WAR file
-- name: build_java_server
-  image: maven:3.6.1-jdk-8
-  commands:
-  - cd /food-planner-back-end/
-  - mvn clean package
+#- name: build_java_server
+#  image: maven:3.6.1-jdk-8
+#  commands:
+#  - cd /food-planner-back-end/
+#  - mvn clean package
 
 # Create Docker image from WAR file and push to HDAP Docker registry
 #- name: deploy_java_server_image
