@@ -26,3 +26,7 @@ Backend URL: http://localhost:8080/
   + yarn v1.19.1
   + npm 6.12.0
 - Docker 2.1.0.3
+- Back End
+  + Java 1.8
+  + SpringBoot 2.1.6.RELEASE
+  + Maven 3.6.2
