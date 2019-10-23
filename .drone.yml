@@ -5,12 +5,12 @@ steps:
 # Define the steps to test, package, and deploy your application
 # For example steps to build and deploy a java application may look like this
 # Run Java Unit Tests and build WAR file
-#- name: build_java_server
-#  image: maven:3.6.1-jdk-8
-#  commands:
-#  - cd directory_for_java_project
-#  - mvn clean package
-#
+- name: build_java_server
+  image: maven:3.6.1-jdk-8
+  commands:
+  - cd /food-planner-back-end/
+  - mvn clean package
+
 # Create Docker image from WAR file and push to HDAP Docker registry
 #- name: deploy_java_server_image
 #  image: plugins/docker
@@ -21,7 +21,7 @@ steps:
 #    tags:
 #      - latest
 #
-# Here is an example more generic step to deploy to the HDAP Docker registry
+#  Here is an example more generic step to deploy to the HDAP Docker registry
 #- name: deploy_application_image
 #  image: plugins/docker
 #  settings:
@@ -30,19 +30,29 @@ steps:
 #    dockerfile: directory_of_myapp_code/Dockerfile
 #    tags:
 #      - latest
+#
+# Here is an example more generic step to deploy to the HDAP Docker registry
+- name: deploy_application_image
+  image: plugins/docker
+  settings:
+    repo: build.hdap.gatech.edu/food-planner-back-end
+    context: /food-planner-back-end
+    dockerfile: food-planner-back-end/Dockerfile
+    tags:
+      - latest
 
 # Pull down the templates for deployment to HDAP K8S
 - name: get_chart_builder
   image: docker:git
   commands:
-    - git clone -b cs6440 https://github.gatech.edu/es130/HDAP_helm_deploy_templates.git
+    - git clone -b master https://github.gatech.edu/gt-cs6440-hit-fall2019/FoodPlanner2.git
 
 # Set the namespace to use for deployment
 - name: copy_namespace
   image: busybox:1.31
   commands:
     - userns=`awk '/namespace:/{print $2}' ./values.yaml`
-    - sed -i "s/REPLACE_WITH_NAMESPACE/$userns/g" ./HDAP_helm_deploy_templates/deploy/Dockerfile
+    - sed -i "s/foodplanner2/$userns/g" ./HDAP_helm_deploy_templates/deploy/Dockerfile
 
 # Deploy the application to HDAP K8S
 - name: deploy_to_k8s
