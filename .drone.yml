@@ -36,8 +36,8 @@ steps:
   image: plugins/docker
   settings:
     repo: build.hdap.gatech.edu/food-planner-back-end
-    context: /food-planner-back-end
-    dockerfile: food-planner-back-end/Dockerfile
+    context: .
+    dockerfile: /Dockerfile
     tags:
       - latest
 
