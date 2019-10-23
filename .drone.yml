@@ -45,7 +45,7 @@ steps:
 - name: get_chart_builder
   image: docker:git
   commands:
-    - git clone -b master https://github.gatech.edu/gt-cs6440-hit-fall2019/FoodPlanner2.git
+    - git clone -b cs6440 https://github.gatech.edu/es130/HDAP_helm_deploy_templates.git
 
 # Set the namespace to use for deployment
 - name: copy_namespace
