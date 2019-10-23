@@ -9,6 +9,8 @@ A tool to help guide people in the direction of meal planning based on current c
 docker-compose build
 docker-compose up
 ```
+Frontend URL: http://localhost:3000/
+Backend URL: http://localhost:8080/
 
 # Team Members
 - Donald Ford
