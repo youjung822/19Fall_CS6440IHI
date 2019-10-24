@@ -11,13 +11,6 @@ steps:
     - cd food-planner-back-end
     - mvn clean install
 
-- name: docker_build_java_server
-  image: plugins/docker
-  commands:
-    - cd food-planner-back-end
-    - ls -a
-    - docker image build -t food-planner-back-end:latest .
-
 # Create Docker image from WAR file and push to HDAP Docker registry
 #- name: deploy_java_server_image
 #  image: plugins/docker
