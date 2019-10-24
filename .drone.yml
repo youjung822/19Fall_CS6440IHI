@@ -62,7 +62,7 @@ steps:
   image: busybox:1.31
   commands:
     - userns=`awk '/namespace:/{print $2}' ./values.yaml`
-    - sed -i "s/foodplanner2/$userns/g" ./HDAP_helm_deploy_templates/deploy/Dockerfile
+    - sed -i "s/REPLACE_WITH_NAMESPACE/$userns/g" ./HDAP_helm_deploy_templates/deploy/Dockerfile
 
 # Deploy the application to HDAP K8S
 - name: deploy_to_k8s
