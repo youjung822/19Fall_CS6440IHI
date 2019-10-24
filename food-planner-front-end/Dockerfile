@@ -1,6 +1,7 @@
 FROM node:10.16.3 AS builder
 
 WORKDIR /usr/src/app
+CMD ["ls","-a"]
 COPY package.json yarn.lock ./
 RUN yarn
 RUN yarn upgrade
