@@ -34,8 +34,6 @@ steps:
 # Here is an example more generic step to deploy to the HDAP Docker registry
 - name: deploy_back_end_application_image
   image: plugins/docker
-  commands:
-    - ls -a
   settings:
     repo: build.hdap.gatech.edu/FoodPlanner2/food-planner-front-end
     context: .
