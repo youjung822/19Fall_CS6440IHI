@@ -15,7 +15,7 @@ frontend:
     incomingPath: /food-planner-front-end/
     containerPath: "" # The empty string "" means use same as incomingPath, otherwise the value in the string will replace the value of incomingPath when traffic is sent to the application in the deployed container
   image:
-    repo: build.hdap.gatech.edu/food-planner-front-end
+    repo: build.hdap.gatech.edu/FoodPlanner2/food-planner-front-end
     tag: latest
     pullPolicy: Always
   #Volumes used by the application are placed here
@@ -42,7 +42,7 @@ backend:
     incomingPath: /food-planner-back-end/
     containerPath: "" # The empty string "" means use same as incomingPath, otherwise the value in the string will replace the value of incomingPath when traffic is sent to the application in the deployed container
   image:
-    repository: nginx
+    repository: build.hdap.gatech.edu/FoodPlanner2/food-planner-back-end
     tag: latest
     pullPolicy: Always
   #Volumes used by the application are placed here

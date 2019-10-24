@@ -35,7 +35,7 @@ steps:
 - name: deploy_application_image
   image: plugins/docker
   settings:
-    repo: build.hdap.gatech.edu/food-planner-front-end
+    repo: build.hdap.gatech.edu/FoodPlanner2/food-planner-front-end
     context: .
     dockerfile: /Dockerfile
     tags:
