@@ -8,6 +8,7 @@ steps:
 - name: build_java_server
   image: maven:3.6.1-jdk-8
   commands:
+    - cd food-planner-front-end
     - mvn clean install
 
 - name: docker_build_java_server
