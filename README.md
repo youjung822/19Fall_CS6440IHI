@@ -13,6 +13,10 @@ A tool to help guide people in the direction of meal planning based on current c
 Frontend URL: http://localhost:3000/  
 Backend URL: http://localhost:8080/  
 
+# Production
+Frontend URL: https://apps.hdap.gatech.edu/newfoodplanner2frontend:3000
+Backend URL: https://apps.hdap.gatech.edu/newfoodplanner2backend:8000
+
 # Team Members
 - Donald Ford  
 - Dale Park  
