@@ -8,8 +8,9 @@ steps:
 - name: build_java_server
   image: maven:3.6.1-jdk-8
   commands:
+    - docker ps
+    - docker version
     - cd food-planner-back-end
-    - ls -a
     - mvn clean install dockerfile:build
 
 # Create Docker image from WAR file and push to HDAP Docker registry
