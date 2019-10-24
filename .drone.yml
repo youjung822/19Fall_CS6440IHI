@@ -51,14 +51,24 @@ steps:
 #      - latest
 
 # Create Docker image and push to HDAP Docker registry
-- name: deploy_application_image
+- name: deploy_front_end_application_image
   image: plugins/docker
   settings:
     repo: build.hdap.gatech.edu/FoodPlanner2
-    context: .
-    dockerfile: ./Dockerfile
+    context: food-planner-front-end/
+    dockerfile: food-planner-front-end/Dockerfile
     tags:
       - latest
+
+- name: deploy_back_end_application_image
+  image: plugins/docker
+  settings:
+    repo: build.hdap.gatech.edu/FoodPlanner2
+    context: food-planner-back-end/
+    dockerfile: food-planner-back-end/Dockerfile
+    tags:
+      - latest
+
 
 # Pull down the templates for deployment to HDAP K8S
 - name: get_chart_builder
