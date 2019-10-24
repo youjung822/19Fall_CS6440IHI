@@ -1,6 +1,11 @@
 FROM node:10.16.3 AS builder
 
-WORKDIR /usr/src/app
+# make a working directory
+RUN mkdir -p /usr/local/app
+
+# set the working directory
+WORKDIR /usr/local/app
+
 RUN echo $(ls -a)
 COPY package.json yarn.lock ./
 RUN yarn
@@ -10,6 +15,5 @@ RUN yarn build
 
 # Stage 2 - the production environment
 FROM nginx:1.12-alpine
-COPY --from=builder /usr/src/app/build /usr/share/nginx/html/newfoodplanner2frontend
-RUN echo $(ls -a /usr/share/nginx/html/newfoodplanner2frontend)
-CMD ["nginx", "-g", "daemon off;"]
+COPY --from=builder ./usr/local/app/app /etc/nginx/html/newfoodplanner2frontend/
+COPY --from=builder ./usr/local/app/nginx.conf /etc/nginx/conf.d/default.conf
