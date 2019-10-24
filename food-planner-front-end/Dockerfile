@@ -10,5 +10,5 @@ RUN yarn build
 
 # Stage 2 - the production environment
 FROM nginx:1.12-alpine
-COPY --from=builder ./usr/src/app/build /usr/share/nginx/html/newfoodplanner2frontend/
+COPY --from=builder ./usr/src/app/build ./usr/share/nginx/html/newfoodplanner2frontend
 CMD ["nginx", "-g", "daemon off;"]
