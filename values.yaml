@@ -12,7 +12,7 @@ frontend:
   port: 3000
   replicaCount: 1
   proxy:
-    incomingPath: /food-planner-front-end/
+    incomingPath: /foodplanner2/food-planner-front-end
     containerPath: "" # The empty string "" means use same as incomingPath, otherwise the value in the string will replace the value of incomingPath when traffic is sent to the application in the deployed container
   image:
     repo: build.hdap.gatech.edu/foodplanner2/food-planner-front-end
@@ -39,7 +39,7 @@ backend:
   port: 8080
   replicaCount: 1
   proxy:
-    incomingPath: /food-planner-back-end/
+    incomingPath: /foodplanner2/food-planner-back-end/
     containerPath: "" # The empty string "" means use same as incomingPath, otherwise the value in the string will replace the value of incomingPath when traffic is sent to the application in the deployed container
   image:
     repository: build.hdap.gatech.edu/foodplanner2/food-planner-back-end
