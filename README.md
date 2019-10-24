@@ -14,8 +14,8 @@ Frontend URL: http://localhost:3000/
 Backend URL: http://localhost:8080/  
 
 # Production
-Frontend URL: https://apps.hdap.gatech.edu/newfoodplanner2frontend:3000
-Backend URL: https://apps.hdap.gatech.edu/newfoodplanner2backend:8000
+Frontend URL: https://apps.hdap.gatech.edu/newfoodplanner2frontend:80
+Backend URL: https://apps.hdap.gatech.edu/newfoodplanner2backend:80
 
 # Team Members
 - Donald Ford  
