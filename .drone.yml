@@ -14,6 +14,7 @@ steps:
 - name: docker_build_java_server
   image: plugins/docker
   commands:
+    - cd food-planner-back-end
     - ls -a
     - docker image build -t food-planner-back-end:latest .
 
