@@ -32,21 +32,31 @@ steps:
 #      - latest
 #
 # Here is an example more generic step to deploy to the HDAP Docker registry
-- name: deploy_back_end_application_image
-  image: plugins/docker
-  settings:
-    repo: build.hdap.gatech.edu/FoodPlanner2/food-planner-front-end
-    context: .
-    dockerfile: /Dockerfile
-    tags:
-      - latest
+#- name: deploy_back_end_application_image
+#  image: plugins/docker
+#  settings:
+#    repo: build.hdap.gatech.edu/FoodPlanner2/food-planner-front-end
+#    context: .
+#    dockerfile: /Dockerfile
+#    tags:
+#      - latest
+#
+#- name: deploy_front_end_application_image
+#  image: plugins/docker
+#  settings:
+#    repo: build.hdap.gatech.edu/FoodPlanner2/food-planner-back-end
+#    context: .
+#    dockerfile: /Dockerfile
+#    tags:
+#      - latest
 
-- name: deploy_front_end_application_image
+# Create Docker image and push to HDAP Docker registry
+- name: deploy_application_image
   image: plugins/docker
   settings:
-    repo: build.hdap.gatech.edu/FoodPlanner2/food-planner-back-end
+    repo: build.hdap.gatech.edu/FoodPlanner2
     context: .
-    dockerfile: /Dockerfile
+    dockerfile: ./Dockerfile
     tags:
       - latest
 

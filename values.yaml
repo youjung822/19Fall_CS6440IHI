@@ -1,6 +1,6 @@
 # The namespace to deploy your application
 global:
-  namespace: foodplanner2
+  namespace: FoodPlanner2
 
 # Default values for webapp.
 # This is a YAML-formatted file.
