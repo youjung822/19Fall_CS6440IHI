@@ -6,14 +6,14 @@ steps:
 # For example steps to build and deploy a java application may look like this
 # Run Java Unit Tests and build WAR file
 - name: build_java_server
-  image:
-    - maven:3.6.1-jdk-8
-    - plugins/docker
+  image: maven:3.6.1-jdk-8
   commands:
-    - docker ps
-    - docker version
-    - cd food-planner-back-end
-    - mvn clean install dockerfile:build
+    - mvn clean install
+
+- name: docker_build_java_server
+  image: plugins/docker
+  commands:
+    - docker image build -t food-planner-front-end:latest .
 
 # Create Docker image from WAR file and push to HDAP Docker registry
 #- name: deploy_java_server_image
