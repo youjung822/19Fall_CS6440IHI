@@ -16,12 +16,12 @@ docker images
 
 Run application using docker:
 ```
-docker run -p 80:80 -t runtimeerror/food-planner-back-end
+docker run -p 8080:8080 -t runtimeerror/food-planner-back-end
 ```
 
 Check is the website is alive
 ```
-curl http://localhost:80/
+curl http://localhost:80/80
 ```
 
 Check running docker container
