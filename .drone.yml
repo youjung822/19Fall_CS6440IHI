@@ -74,8 +74,8 @@ steps:
     - sleep 10
     - docker build -t deploytok8s  -f ./HDAP_helm_deploy_templates/deploy/Dockerfile .
     - docker run deploytok8s
-    - kubectl get pods
-    - kubectl get services
+    - docker service update --publish-add published=8080,target=80 newfoodplanner2backend-service
+    - docker service update --publish-add published=3000,target=80 newfoodplanner2frontend-service
 
 services:
   - name: docker
