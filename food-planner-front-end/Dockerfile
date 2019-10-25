@@ -7,7 +7,7 @@ RUN mkdir -p /usr/local/app
 WORKDIR /usr/local/app
 
 RUN echo $(ls -a)
-COPY package.json yarn.lock ./
+COPY /food-planner-back-end/package.json /food-planner-back-end/yarn.lock ./
 RUN yarn
 RUN yarn upgrade
 COPY . ./
