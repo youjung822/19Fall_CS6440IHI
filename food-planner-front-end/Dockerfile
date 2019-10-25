@@ -16,6 +16,3 @@ RUN yarn build
 # Stage 2 - the production environment
 FROM nginx:1.12-alpine
 COPY --from=builder ./usr/local/app/build /usr/share/nginx/html/newfoodplanner2frontend
-COPY --from=builder ./usr/local/app/build /var/www
-COPY --from=builder ./usr/local/app/nginx.conf /etc/nginx/nginx.conf
-EXPOSE 80
