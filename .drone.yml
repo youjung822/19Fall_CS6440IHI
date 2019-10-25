@@ -50,7 +50,6 @@ steps:
     tags:
       - latest
 
-
 # Pull down the templates for deployment to HDAP K8S
 - name: get_chart_builder
   image: docker:git
