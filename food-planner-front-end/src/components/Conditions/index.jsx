@@ -4,17 +4,21 @@ import { Wrapper, Content } from './styles';
 import { Header, Select, Chips } from '../';
 
 const suggestions = [
-  { label: 'Vegetarian' },
-  { label: 'Diabetic' },
-  { label: 'Peanut Allergy' },
-  { label: 'Lactose Intolerant' },
-  { label: 'Shellfish Allergy' },
-  { label: 'Egg Allergy' },
-  { label: 'Soybean Allergy' },
-  { label: 'Fish Allergy' }
+  'Dairy',
+  'Egg',
+  'Gluten',
+  'Grain',
+  'Peanut',
+  'Seafood',
+  'Sesame',
+  'Shellfish',
+  'Soy',
+  'Sulfite',
+  'Tree Nut',
+  'Wheat'
 ].map(suggestion => ({
-  value: suggestion.label,
-  label: suggestion.label
+  value: suggestion,
+  label: suggestion
 }));
 
 export default function Conditions({ conditions, toggleCondition }) {
@@ -27,7 +31,7 @@ export default function Conditions({ conditions, toggleCondition }) {
       <Header>My Conditions</Header>
       <Content>
         <Select
-          label="Conditions"
+          label="Allergies"
           suggestions={filteredSuggestions}
           onChange={toggleCondition}
         />
