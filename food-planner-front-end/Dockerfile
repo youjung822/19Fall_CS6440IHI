@@ -17,5 +17,5 @@ RUN yarn build
 FROM nginx:1.12-alpine
 COPY --from=builder ./usr/local/app/build /usr/share/nginx/html/newfoodplanner2frontend
 COPY --from=builder ./usr/local/app/build /var/www
-COPY --from=builder nginx.conf /etc/nginx/nginx.conf
+COPY --from=builder ./usr/local/app/nginx.conf /etc/nginx/nginx.conf
 EXPOSE 80
