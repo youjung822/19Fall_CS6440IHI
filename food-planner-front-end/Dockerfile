@@ -16,5 +16,3 @@ RUN yarn build
 # Stage 2 - the production environment
 FROM nginx
 COPY --from=builder ./usr/local/app/build /usr/share/nginx/html/newfoodplanner2frontend
-RUN cd /usr/share/nginx/html/newfoodplanner2frontend
-RUN echo $(ls -a)
