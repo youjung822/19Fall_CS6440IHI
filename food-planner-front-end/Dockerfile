@@ -6,10 +6,7 @@ RUN mkdir -p /usr/local/app
 # set the working directory
 WORKDIR /usr/local/app
 
-#COPY package.json yarn.lock ./
-# copy dependency definitions
-COPY . /usr/local/app
-
+COPY package.json yarn.lock ./
 RUN yarn
 RUN yarn upgrade
 COPY . ./
