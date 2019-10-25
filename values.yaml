@@ -13,7 +13,7 @@ frontend:
   replicaCount: 1
   proxy:
     incomingPath: /newfoodplanner2frontend/
-    containerPath: '/build/index.html' # The empty string "" means use same as incomingPath, otherwise the value in the string will replace the value of incomingPath when traffic is sent to the application in the deployed container
+    containerPath: 'build/index.html' # The empty string "" means use same as incomingPath, otherwise the value in the string will replace the value of incomingPath when traffic is sent to the application in the deployed container
   image:
     repo: build.hdap.gatech.edu/foodplanner2/food-planner-front-end
     tag: latest
