@@ -13,7 +13,6 @@ RUN yarn build
 # Stage 2 - the production environment
 FROM nginx
 COPY --from=builder ./usr/local/app/build /usr/share/nginx/html/
-COPY --from=builder ./usr/local/app/nginx.conf /etc/nginx/conf.d/default.conf
 #RUN echo $(ls -1 /usr/share/nginx/html/)
 EXPOSE 80
 ENTRYPOINT ["nginx","-g","daemon off;"]
