@@ -11,7 +11,7 @@ services:
       context: food-planner-back-end # Use an image built from the specified dockerfile in the `polling-app-server` directory.
       dockerfile: Dockerfile
     ports:
-      - "8080:8080" # Forward the exposed port 8080 on the container to port 8080 on the host machine
+      - "8080:80" # Forward the exposed port 8080 on the container to port 8080 on the host machine
     restart: always
 #    depends_on:
 #      - db # This service depends on mysql. Start that first.
@@ -31,7 +31,7 @@ services:
 #      args:
 #        REACT_APP_API_BASE_URL: http://127.0.0.1:3000/api
     ports:
-      - "3000:3000" # Map the exposed port 80 on the container to port 9090 on the host machine
+      - "3000:80" # Map the exposed port 80 on the container to port 9090 on the host machine
     restart: always
     depends_on:
       - app-server
