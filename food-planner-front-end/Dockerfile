@@ -10,8 +10,10 @@ COPY package.json yarn.lock ./
 RUN yarn
 RUN yarn upgrade
 COPY . ./
-RUN yarn build
+RUN yarn install
 
 # Stage 2 - the production environment
 FROM nginx
 COPY --from=builder ./usr/local/app/build /usr/share/nginx/html/food-planner-front-end
+COPY --from=builder ./usr/local/app/nginx.conf /usr/share/nginx/conf.d/default.conf
+#COPY --from=builder ./usr/local/app/nginx.conf /etc/nginx/conf.d/default.conf
