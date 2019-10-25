@@ -6,8 +6,10 @@ RUN mkdir -p /usr/local/app
 # set the working directory
 WORKDIR /usr/local/app
 
-RUN echo $(ls -a)
-COPY /food-planner-back-end/package.json /food-planner-back-end/yarn.lock ./
+#COPY package.json yarn.lock ./
+# copy dependency definitions
+COPY . /usr/local/app
+
 RUN yarn
 RUN yarn upgrade
 COPY . ./
