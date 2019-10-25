@@ -9,10 +9,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class Application {
     @RequestMapping("/")
-    public String index() {
-        return "This is the index page.";
-    }
-    @RequestMapping("/home")
     public String home() {
         return "Hello world!";
     }
