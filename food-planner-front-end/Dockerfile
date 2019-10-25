@@ -10,7 +10,7 @@ COPY package.json yarn.lock ./
 RUN yarn
 RUN yarn upgrade
 COPY . ./
-RUN yarn install
+RUN yarn build
 
 # Stage 2 - the production environment
 FROM nginx
