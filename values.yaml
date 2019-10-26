@@ -8,22 +8,22 @@ global:
 # REMOVE THIS SECTION IF YOUR APPLICATION DOES NOT HAVE A FRONT END
 frontend:
   #name is a DNS-1035 label and must consist of lower case alphanumeric characters or '-', start with an alphabetic character, and end with an alphanumeric character (e.g. 'my-name',  or 'abc-123')
-  name: food-planner-front-end
+  name: newfoodplanner2frontend
   port: 80
   replicaCount: 1
   proxy:
     incomingPath: /newfoodplanner2frontend/
-    containerPath: "" # The empty string "" means use same as incomingPath, otherwise the value in the string will replace the value of incomingPath when traffic is sent to the application in the deployed container
+    containerPath: / # The empty string "" means use same as incomingPath, otherwise the value in the string will replace the value of incomingPath when traffic is sent to the application in the deployed container
   image:
-    repo: build.hdap.gatech.edu/foodplanner2/food-planner-front-end
+    repository: build.hdap.gatech.edu/foodplanner2/food-planner-front-end
     tag: latest
     pullPolicy: Always
   #Volumes used by the application are placed here
 #  volumes:
 #    vol1: /var/log/nginx
 #    vol2: /something/else/in/container
-  #Environment variables used by the application are placed here.
-  #Define environment variables for your container using the format below.
+#Environment variables used by the application are placed here.
+#Define environment variables for your container using the format below.
 #  env:
 #    ENV_1: test_env1
 #    ENV_2: test_env2
@@ -35,12 +35,12 @@ frontend:
 # REMOVE THIS SECTION IF YOUR APPLICATION DOES NOT HAVE A BACKEND
 backend:
   #name is a DNS-1035 label and must consist of lower case alphanumeric characters or '-', start with an alphabetic character, and end with an alphanumeric character (e.g. 'my-name',  or 'abc-123')
-  name: food-planner-back-end
+  name: newfoodplanner2backend
   port: 80
   replicaCount: 1
   proxy:
     incomingPath: /newfoodplanner2backend/
-    containerPath: "" # The empty string "" means use same as incomingPath, otherwise the value in the string will replace the value of incomingPath when traffic is sent to the application in the deployed container
+    containerPath: / # The empty string "" means use same as incomingPath, otherwise the value in the string will replace the value of incomingPath when traffic is sent to the application in the deployed container
   image:
     repository: build.hdap.gatech.edu/foodplanner2/food-planner-back-end
     tag: latest
@@ -49,8 +49,8 @@ backend:
 #  volumes:
 #    vol1: /var/lib/mysql
 #    vol2: /something/else/in/container
-  #Environment variables used by the application are placed here.
-  #Define environment variables for your container using the format below.
+#Environment variables used by the application are placed here.
+#Define environment variables for your container using the format below.
 #  env:
 #    ENV_1: test_env1
 #    ENV_2: test_env2

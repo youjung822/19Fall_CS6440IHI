@@ -1,4 +1,4 @@
-package hello;
+package backend;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -10,12 +10,17 @@ import org.springframework.web.bind.annotation.RestController;
 public class Application {
     @RequestMapping("/")
     public String home() {
-        return "Hello world";
+        return "Hello Runtime Terror";
     }
 
     @RequestMapping("*")
     public String error() {
-        return "Error 404";
+        return "Error 404!";
+    }
+
+    @RequestMapping("/status")
+    public String status() {
+        return "Good.";
     }
 
     public static void main(String[] args) {
