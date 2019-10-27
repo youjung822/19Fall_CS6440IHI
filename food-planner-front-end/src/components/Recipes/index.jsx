@@ -3,6 +3,7 @@ import Button from '@material-ui/core/Button';
 import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import TextField from '@material-ui/core/TextField';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 import { Header, Select } from '../';
 import {
@@ -15,59 +16,63 @@ import {
   ResultHeading,
   CookTime,
   Title,
-  MatchingIngredients
+  MatchingIngredients,
+  LoadingHolder
 } from './styles';
-
-const dummyRecipes = [
-  {
-    title: 'Chicken parm',
-    cookTime: '1 hr',
-    matchingIngredients: 1,
-    urlLink: 'https://www.allrecipes.com/recipe/223042/chicken-parmesan/'
-  },
-  {
-    title: 'Meatloaf',
-    cookTime: '1 h 10 m',
-    matchingIngredients: 2,
-    urlLink: 'https://www.allrecipes.com/recipe/16354/easy-meatloaf/'
-  },
-  {
-    title: 'Veggie soup',
-    cookTime: '1 hour 20 min',
-    matchingIngredients: 3,
-    urlLink: 'https://www.tasteofhome.com/recipes/hearty-vegetable-soup/'
-  },
-  {
-    title: 'Stroganoff',
-    cookTime: '45 min',
-    matchingIngredients: 0,
-    urlLink:
-      'https://www.foodnetwork.com/recipes/paula-deen/beef-stroganoff-recipe-1940482'
-  }
-];
+import { lookupRecipes } from '../../lib/recipes';
 
 const cuisines = [
-  { label: 'Italian' },
-  { label: 'Greek' },
-  { label: 'French' },
-  { label: 'American' },
-  { label: 'German' },
-  { label: 'Chinese' },
-  { label: 'Japanese' }
+  'African',
+  'American',
+  'British',
+  'Cajun',
+  'Caribbean',
+  'Chinese',
+  'Eastern European',
+  'European',
+  'French',
+  'German',
+  'Greek',
+  'Indian',
+  'Irish',
+  'Italian',
+  'Japanese',
+  'Jewish',
+  'Korean',
+  'Latin American',
+  'Mediterranean',
+  'Mexican',
+  'Middle Eastern',
+  'Nordic',
+  'Southern',
+  'Spanish',
+  'Thai',
+  'Vietnamese'
 ].map(suggestion => ({
-  value: suggestion.label,
-  label: suggestion.label
+  value: suggestion,
+  label: suggestion
 }));
 
-export default function Recipes() {
+export default function Recipes({ conditions, ingredients }) {
   const [recipes, setRecipes] = useState([]);
   const [cuisine, setCuisine] = useState(null);
   const [filterByCondition, setFilterByCondition] = useState(false);
   const [filterByIngredients, setFilterByIngredients] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [keywords, setKeywords] = useState('');
 
-  const onSearch = () => {
-    setRecipes(dummyRecipes);
+  const onSearch = async () => {
+    setIsLoading(true);
+
+    const results = await lookupRecipes(
+      keywords,
+      cuisine,
+      filterByCondition ? conditions : null,
+      filterByIngredients ? ingredients : null
+    );
+
+    setIsLoading(false);
+    setRecipes(results);
   };
 
   return (
@@ -137,26 +142,32 @@ export default function Recipes() {
       <Row noTopBorder>
         <Title>Title</Title>
         <CookTime>Cook Time</CookTime>
-        <MatchingIngredients>Matching Ingredients</MatchingIngredients>
+        {/* <MatchingIngredients>Matching Ingredients</MatchingIngredients> */}
         <div style={{ width: '120px' }}></div>
       </Row>
-      {recipes.map(({ title, cookTime, matchingIngredients, urlLink }) => (
-        <Row key={title}>
-          <Title>{title}</Title>
-          <CookTime>{cookTime}</CookTime>
-          <MatchingIngredients>{matchingIngredients}</MatchingIngredients>
-          <Button variant="contained" color="primary">
-            <a
-              style={{ color: 'white', textDecoration: 'none' }}
-              href={urlLink}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              View Recipe
-            </a>
-          </Button>
-        </Row>
-      ))}
+      {!isLoading &&
+        recipes.map(({ title, readyInMinutes, sourceUrl }) => (
+          <Row key={title}>
+            <Title>{title}</Title>
+            <CookTime>{readyInMinutes} min</CookTime>
+            {/* <MatchingIngredients>0</MatchingIngredients> */}
+            <Button variant="contained" color="primary">
+              <a
+                style={{ color: 'white', textDecoration: 'none' }}
+                href={sourceUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                View Recipe
+              </a>
+            </Button>
+          </Row>
+        ))}
+      {isLoading && (
+        <LoadingHolder>
+          <CircularProgress size={64} />
+        </LoadingHolder>
+      )}
     </Wrapper>
   );
 }
