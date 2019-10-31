@@ -13,10 +13,10 @@ public class Ingredients {
 
     public Ingredients() {
         ingredients = new ArrayList<>();
+        ingredients = this.init();
     }
 
-    public List<String> get() {
-
+    public List<String> init() {
         try {
             InputStream is = Ingredients.class.getResourceAsStream("/top-1k-ingredients.csv");
             BufferedReader reader = new BufferedReader(new InputStreamReader(is));
@@ -29,6 +29,10 @@ public class Ingredients {
         } catch (IOException ex) {
             Logger.getLogger(Ingredients.class.getName()).log(Level.SEVERE, null, ex);
         }
+        return ingredients;
+    }
+
+    public List<String> get() {
         return ingredients;
     }
 }
