@@ -22,7 +22,7 @@ public class Ingredients {
             BufferedReader reader = new BufferedReader(new InputStreamReader(is));
             String line;
             while ((line = reader.readLine()) != null) {
-                ingredients.add(line.split(";")[0]);
+                ingredients.add(line);
             }
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Ingredients.class.getName()).log(Level.SEVERE, null, ex);
