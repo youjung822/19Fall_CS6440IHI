@@ -3,7 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 
 import { Wrapper, NavWrapper, Content } from './styles';
 
-import { SideNav, Conditions, Ingredients, Recipes } from '../';
+import { Login, SideNav, Conditions, Ingredients, Recipes } from '../';
 
 import paths from '../../lib/paths';
 
@@ -39,6 +39,11 @@ export default function App() {
       </NavWrapper>
       <Content>
         <Switch>
+          <Route
+            path={paths.login}
+            exact
+            render={props => <Login {...props} />}
+          />
           <Route
             path={paths.allergies}
             exact
