@@ -1,24 +1,13 @@
-import React, { useState } from 'react';
-import Checkbox from '@material-ui/core/Checkbox';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
+import React from 'react';
 
-import { Wrapper, Content, FilterHolder, FilterItem } from './styles';
+import { Wrapper, Content, FilterHolder } from './styles';
 import { Header, AsyncSelect, Chips } from '../';
 import { lookupIngredients } from '../../lib/ingredients';
 
-export default function Ingredients({
-  ingredients,
-  conditions,
-  toggleIngredient
-}) {
-  const [filterByCondition, setFilterByCondition] = useState(false);
-
+export default function Ingredients({ ingredients, toggleIngredient }) {
   const loadOptions = async (inputValue, callback) => {
-    if (inputValue.length > 3) {
-      const suggestions = await lookupIngredients(
-        inputValue,
-        filterByCondition ? conditions : null
-      );
+    if (inputValue.length >= 3) {
+      const suggestions = await lookupIngredients(inputValue);
 
       const filteredSuggestions = suggestions.filter(
         ({ value }) => !ingredients.includes(value)
@@ -38,21 +27,6 @@ export default function Ingredients({
             loadOptions={loadOptions}
             onChange={toggleIngredient}
           />
-          <FilterItem>
-            <FormControlLabel
-              control={
-                <Checkbox
-                  checked={filterByCondition}
-                  onChange={() => setFilterByCondition(!filterByCondition)}
-                  color="primary"
-                  inputProps={{
-                    'aria-label': 'condition checkbox'
-                  }}
-                />
-              }
-              label="Filter by my allergies"
-            />
-          </FilterItem>
         </FilterHolder>
         <Chips values={ingredients} onDelete={toggleIngredient} />
       </Content>

@@ -7,3 +7,4 @@ export { default as Recipes } from './Recipes';
 export { default as AsyncSelect } from './AsyncSelect';
 export { default as Select } from './Select';
 export { default as SideNav } from './SideNav';
+export { default as RecipeCard } from './RecipeCard';

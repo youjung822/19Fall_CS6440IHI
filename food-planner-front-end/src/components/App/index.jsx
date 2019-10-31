@@ -17,11 +17,16 @@ const toggleList = (list, val) => {
 };
 
 export default function App() {
-  const [conditions, setConditions] = useState([]);
+  const [allergies, setAllergies] = useState([]);
   const [ingredients, setIngredients] = useState([]);
+  const [recipes, setRecipes] = useState([]);
+  const [cuisine, setCuisine] = useState(null);
+  const [filterByCondition, setFilterByCondition] = useState(false);
+  const [filterByIngredients, setFilterByIngredients] = useState(false);
+  const [keywords, setKeywords] = useState('');
 
   const toggleCondition = value => {
-    setConditions(toggleList(conditions, value));
+    setAllergies(toggleList(allergies, value));
   };
   const toggleIngredient = value => {
     setIngredients(toggleList(ingredients, value));
@@ -35,12 +40,12 @@ export default function App() {
       <Content>
         <Switch>
           <Route
-            path={paths.conditions}
+            path={paths.allergies}
             exact
             render={props => (
               <Conditions
                 {...props}
-                conditions={conditions}
+                allergies={allergies}
                 toggleCondition={toggleCondition}
               />
             )}
@@ -51,7 +56,7 @@ export default function App() {
             render={props => (
               <Ingredients
                 {...props}
-                conditions={conditions}
+                allergies={allergies}
                 ingredients={ingredients}
                 toggleIngredient={toggleIngredient}
               />
@@ -63,8 +68,18 @@ export default function App() {
             render={props => (
               <Recipes
                 {...props}
-                conditions={conditions}
+                allergies={allergies}
                 ingredients={ingredients}
+                cuisine={cuisine}
+                setCuisine={setCuisine}
+                recipes={recipes}
+                setRecipes={setRecipes}
+                keywords={keywords}
+                setKeywords={setKeywords}
+                filterByCondition={filterByCondition}
+                setFilterByCondition={setFilterByCondition}
+                filterByIngredients={filterByIngredients}
+                setFilterByIngredients={setFilterByIngredients}
               />
             )}
           />

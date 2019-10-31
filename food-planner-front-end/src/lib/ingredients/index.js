@@ -1,26 +1,18 @@
-const API_KEY = '46bb16cfd8c54a4bad84ab9b7f7ac473';
-
-function generateUrl(query, intoleranceList) {
-  const baseQuery = `https://api.spoonacular.com/food/ingredients/autocomplete?query=${query}&number=3&apiKey=${API_KEY}`;
-
-  if (intoleranceList)
-    return `${baseQuery}&intolerances=${intoleranceList.join(',')}`;
-
-  return baseQuery;
-}
-
-export async function lookupIngredients(query, intoleranceList) {
-  const response = await fetch(generateUrl(query, intoleranceList), {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json'
+export async function lookupIngredients(query) {
+  const response = await fetch(
+    'https://apps.hdap.gatech.edu/newfoodplanner2backend/ingredients',
+    {
+      method: 'GET'
     }
-  });
-
+  );
   const myJson = await response.json();
 
-  return myJson.map(({ name }) => ({
-    value: name,
-    label: name
-  }));
+  const unique = [...new Set(myJson)];
+
+  return unique
+    .filter(name => name.includes(query))
+    .map(name => ({
+      value: name,
+      label: name
+    }));
 }
