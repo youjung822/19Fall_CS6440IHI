@@ -2,18 +2,6 @@ import styled from 'styled-components';
 
 export const Wrapper = styled.div``;
 
-export const Row = styled.div`
-  display: flex;
-  align-items: center;
-  border-top: 1px solid #d3d3d3;
-  border-bottom: 1px solid #d3d3d3;
-  height: 64px;
-  margin-top: -1px;
-  justify-content: space-between;
-
-  ${props => (props.noTopBorder ? `border-top: none; font-weight: bold;` : ``)};
-`;
-
 export const FilterRow = styled.div`
   display: flex;
   align-items: center;
@@ -37,24 +25,12 @@ export const SearchButton = styled.div`
 export const ResultHeading = styled.div`
   padding-bottom: 16px;
   font-size: 32px;
+  color: #132584;
 `;
 
-export const Title = styled.div`
-  width: 200px;
+export const Cards = styled.div`
   display: flex;
-  justify-content: flex-start;
-`;
-
-export const CookTime = styled.div`
-  width: 150px;
-  display: flex;
-  justify-content: flex-start;
-`;
-
-export const MatchingIngredients = styled.div`
-  width: 150px;
-  display: flex;
-  justify-content: flex-start;
+  flex-wrap: wrap;
 `;
 
 export const LoadingHolder = styled.div`

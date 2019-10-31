@@ -8,10 +8,12 @@ export const Wrapper = styled.div`
 
 export const NavWrapper = styled.div`
   height: 100%;
+  position: fixed;
   width: 300px;
 `;
 
 export const Content = styled.div`
-  flex: 1;
+  width: calc(100% - 300px);
   margin: 64px;
+  margin-left: 364px;
 `;

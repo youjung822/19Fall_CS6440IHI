@@ -5,19 +5,16 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import TextField from '@material-ui/core/TextField';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
-import { Header, Select } from '../';
+import { Header, Select, RecipeCard } from '../';
 import {
   Wrapper,
-  Row,
   FilterRow,
   FilterItem,
   SearchRow,
   SearchButton,
   ResultHeading,
-  CookTime,
-  Title,
-  MatchingIngredients,
-  LoadingHolder
+  LoadingHolder,
+  Cards
 } from './styles';
 import { lookupRecipes } from '../../lib/recipes';
 
@@ -53,13 +50,21 @@ const cuisines = [
   label: suggestion
 }));
 
-export default function Recipes({ conditions, ingredients }) {
-  const [recipes, setRecipes] = useState([]);
-  const [cuisine, setCuisine] = useState(null);
-  const [filterByCondition, setFilterByCondition] = useState(false);
-  const [filterByIngredients, setFilterByIngredients] = useState(false);
+export default function Recipes({
+  allergies,
+  ingredients,
+  cuisine,
+  setCuisine,
+  recipes,
+  setRecipes,
+  keywords,
+  setKeywords,
+  filterByCondition,
+  setFilterByCondition,
+  filterByIngredients,
+  setFilterByIngredients
+}) {
   const [isLoading, setIsLoading] = useState(false);
-  const [keywords, setKeywords] = useState('');
 
   const onSearch = async () => {
     setIsLoading(true);
@@ -67,7 +72,7 @@ export default function Recipes({ conditions, ingredients }) {
     const results = await lookupRecipes(
       keywords,
       cuisine,
-      filterByCondition ? conditions : null,
+      filterByCondition ? allergies : null,
       filterByIngredients ? ingredients : null
     );
 
@@ -99,7 +104,7 @@ export default function Recipes({ conditions, ingredients }) {
                 }}
               />
             }
-            label="Filter by my conditions"
+            label="Filter by my allergies"
           />
         </FilterItem>
         <FilterItem>
@@ -139,30 +144,13 @@ export default function Recipes({ conditions, ingredients }) {
         </SearchButton>
       </SearchRow>
       <ResultHeading>Results</ResultHeading>
-      <Row noTopBorder>
-        <Title>Title</Title>
-        <CookTime>Cook Time</CookTime>
-        {/* <MatchingIngredients>Matching Ingredients</MatchingIngredients> */}
-        <div style={{ width: '120px' }}></div>
-      </Row>
-      {!isLoading &&
-        recipes.map(({ title, readyInMinutes, sourceUrl }) => (
-          <Row key={title}>
-            <Title>{title}</Title>
-            <CookTime>{readyInMinutes} min</CookTime>
-            {/* <MatchingIngredients>0</MatchingIngredients> */}
-            <Button variant="contained" color="primary">
-              <a
-                style={{ color: 'white', textDecoration: 'none' }}
-                href={sourceUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                View Recipe
-              </a>
-            </Button>
-          </Row>
-        ))}
+      {!isLoading && (
+        <Cards>
+          {recipes.map(recipe => (
+            <RecipeCard key={recipe.title} recipe={recipe} />
+          ))}
+        </Cards>
+      )}
       {isLoading && (
         <LoadingHolder>
           <CircularProgress size={64} />

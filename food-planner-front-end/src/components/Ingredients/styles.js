@@ -8,7 +8,3 @@ export const FilterHolder = styled.div`
   display: flex;
   align-items: center;
 `;
-
-export const FilterItem = styled.div`
-  padding-left: 24px;
-`;

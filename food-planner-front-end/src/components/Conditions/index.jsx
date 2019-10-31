@@ -21,21 +21,21 @@ const suggestions = [
   label: suggestion
 }));
 
-export default function Conditions({ conditions, toggleCondition }) {
+export default function Conditions({ allergies, toggleCondition }) {
   const filteredSuggestions = suggestions.filter(
-    ({ value }) => !conditions.includes(value)
+    ({ value }) => !allergies.includes(value)
   );
 
   return (
     <Wrapper>
-      <Header>My Conditions</Header>
+      <Header>My Allergies</Header>
       <Content>
         <Select
           label="Allergies"
           suggestions={filteredSuggestions}
           onChange={toggleCondition}
         />
-        <Chips values={conditions} onDelete={toggleCondition} />
+        <Chips values={allergies} onDelete={toggleCondition} />
       </Content>
     </Wrapper>
   );

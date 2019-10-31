@@ -5,7 +5,7 @@ export const Wrapper = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
-  background: #f5f5f5;
+  background: #8895dc;
   align-items: center;
   padding-top: 64px;
 `;
@@ -19,5 +19,5 @@ export const LinkWrapper = styled.div`
   margin: 4px 0;
   padding: 4px 0;
 
-  ${props => (props.selected ? `background: #D3D3D3;` : ``)};
+  ${props => (props.selected ? `background: #3f51b5;` : ``)};
 `;
