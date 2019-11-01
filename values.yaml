@@ -56,19 +56,19 @@ backend:
 #    ENV_2: test_env2
 #    ENV_3: test_env3
 
-## Default values for a database.
-## This is a YAML-formatted file.
-## Declare variables to be passed into your templates.
-## REMOVE THIS SECTION IF YOUR APPLICATION DOES NOT HAVE A DATABASE
-#database:
-#  #name is a DNS-1035 label and must consist of lower case alphanumeric characters or '-', start with an alphabetic character, and end with an alphanumeric character (e.g. 'my-name',  or 'abc-123')
-#  name: foodplanner2database
-#  port: 5432
-#  replicaCount: 1
-#  image:
-#    repository: postgres
-#    tag: latest
-#    pullPolicy: Always
+# Default values for a database.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+# REMOVE THIS SECTION IF YOUR APPLICATION DOES NOT HAVE A DATABASE
+database:
+  #name is a DNS-1035 label and must consist of lower case alphanumeric characters or '-', start with an alphabetic character, and end with an alphanumeric character (e.g. 'my-name',  or 'abc-123')
+  name: foodplanner2database
+  port: 5432
+  replicaCount: 1
+  image:
+    repository: postgres
+    tag: latest
+    pullPolicy: Always
 #  #Volumes used by the application are placed here
 ##  volumes:
 ##    vol1: /var/lib/mysql
