@@ -65,6 +65,9 @@ database:
   name: foodplanner2database
   port: 5432
   replicaCount: 1
+  proxy:
+    incomingPath: /foodplanner2database/
+    containerPath: ""
   image:
     repository: postgres
     tag: latest
