@@ -53,6 +53,13 @@ services:
 #      - db-data:/var/lib/mysql
 #    networks:
 #      - backend
+  postgres:
+    build:
+      context: food-planner-database
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - "5432:5432"
 
 # Volumes
 volumes:
