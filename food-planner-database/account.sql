@@ -1,3 +1,5 @@
+CREATE DATABASE foodplanner2database;
+
 CREATE TABLE account(
     user_id serial PRIMARY KEY,
     username VARCHAR(50) UNIQUE NOT NULL,
@@ -9,7 +11,9 @@ CREATE TABLE account(
     last_login TIMESTAMP NOT NULL
 );
 
-CREATE USER test WITH PASSWORD 'test';
+CREATE USER foodplannerdb WITH PASSWORD 'test';
+
+GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO foodplannerdb;
 
 INSERT INTO account (user_id, username, password, email, first_name, last_name, created_on, last_login)
 VALUES (1, 'test', 'test', 'test@test.com', 'test', 'test', now(), now());
