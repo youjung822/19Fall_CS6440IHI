@@ -1,6 +1,6 @@
 const paths = {
-  login: '/',
-  allergies: '/allergies',
+  login: '/login',
+  allergies: '/',
   ingredients: '/ingredients',
   recipes: '/recipes'
 };

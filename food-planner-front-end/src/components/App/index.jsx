@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Link } from 'react-router-dom';
 
-import { Wrapper, NavWrapper, Content } from './styles';
+import { Wrapper, NavWrapper, Content, NavBar, Welcome } from './styles';
 
 import { Login, SideNav, Conditions, Ingredients, Recipes } from '../';
 
 import paths from '../../lib/paths';
+import { getCookie } from '../../lib/cookies';
 
 const toggleList = (list, val) => {
   const copy = [...list];
@@ -17,6 +18,7 @@ const toggleList = (list, val) => {
 };
 
 export default function App() {
+  const [username, setUsername] = useState(getCookie('username'));
   const [allergies, setAllergies] = useState([]);
   const [ingredients, setIngredients] = useState([]);
   const [recipes, setRecipes] = useState([]);
@@ -34,6 +36,19 @@ export default function App() {
 
   return (
     <Wrapper>
+      <NavBar>
+        <Welcome>{username ? `Welcome, ${username}!` : ''}</Welcome>
+        <Link
+          to={paths.login}
+          style={{
+            textDecoration: 'none',
+            color: 'white',
+            paddingRight: '24px'
+          }}
+        >
+          Login
+        </Link>
+      </NavBar>
       <NavWrapper>
         <SideNav />
       </NavWrapper>
@@ -42,7 +57,7 @@ export default function App() {
           <Route
             path={paths.login}
             exact
-            render={props => <Login {...props} />}
+            render={props => <Login {...props} setLoggedInUser={setUsername} />}
           />
           <Route
             path={paths.allergies}
