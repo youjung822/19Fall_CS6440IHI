@@ -11,6 +11,7 @@ export const Wrapper = styled.div`
   align-content: center;
   justify-content: center;
   background: #8895dc;
+  z-index: 15;
 `;
 
 export const Content = styled.div`
