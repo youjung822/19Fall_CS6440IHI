@@ -1,4 +1,11 @@
-CREATE DATABASE foodplanner2database;
+CREATE DATABASE foodplanner2database
+WITH
+OWNER = foodplanner
+ENCODING = 'UTF8'
+LC_COLLATE = 'English_India.1252'
+LC_CTYPE = 'English_India.1252'
+TABLESPACE = pg_default
+CONNECTION_LIMIT = -1;
 
 CREATE TABLE account(
     user_id serial PRIMARY KEY,
@@ -11,7 +18,8 @@ CREATE TABLE account(
     last_login TIMESTAMP NOT NULL
 );
 
-CREATE USER foodplannerdb WITH PASSWORD 'test';
+CREATE USER foodplanner;
+ALTER USER foodplanner PASSWORD 'bestFoodPlanner';
 
 GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO foodplannerdb;
 
