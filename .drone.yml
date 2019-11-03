@@ -62,20 +62,7 @@ steps:
     - name: dockersock
       path: /var/run
   commands:
-    - docker rmi --force 038d25594180
-    - docker rmi --force db69dddb7910
-    - docker rmi --force eb866fc784ea
-    - docker rmi --force 8f1685521006
-    - docker rmi --force 9b3cf71cdd1a
-    - docker rmi --force a6a5c9284280
-    - docker rmi --force 662023ffbbc5
-    - docker rmi --force 64f23a63821f
-    - docker rmi --force 9cf9bdafe72e
-    - docker rmi --force 22f5303efdd7
-    - docker rmi --force ddb50a567803
-    - docker rmi --force 3ba344018aaf
-    - docker rmi --force 809946863d5e
-    - docker rmi --force b67d19e65ef6
+    - docker ps
 
     # Pull down the templates for deployment to HDAP K8S
 - name: get_chart_builder
