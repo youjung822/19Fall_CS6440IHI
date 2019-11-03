@@ -58,11 +58,6 @@ steps:
     dockerfile: food-planner-database/Dockerfile
     tags:
       - latest
-  volumes:
-    - name: dockersock
-      path: /var/run
-  commands:
-    - docker ps
 
     # Pull down the templates for deployment to HDAP K8S
 - name: get_chart_builder
@@ -85,6 +80,7 @@ steps:
     path: /var/run
   commands:
     - sleep 10
+    - docker ps
     - docker build -t deploytok8s  -f ./HDAP_helm_deploy_templates/deploy/Dockerfile .
     - docker run deploytok8s
 
