@@ -2,6 +2,11 @@ kind: pipeline
 name: default
 
 steps:
+- name: docker_cleanse_env
+  image: docker
+  commands:
+    - docker ps
+
 # Define the steps to test, package, and deploy your application
 # For example steps to build and deploy a java application may look like this
 # Run Java Unit Tests and build WAR file
