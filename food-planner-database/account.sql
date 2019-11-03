@@ -1,9 +1,15 @@
+CREATE ROLE foodplanner;
+ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT SELECT,INSERT,UPDATE ON TABLES TO foodplanner;
+GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO foodplanner;
+
+CREATE USER test;
+ALTER USER test PASSWORD 'test';
+GRANT foodplanner TO test;
+
 CREATE DATABASE foodplanner2database
 WITH
 OWNER = foodplanner
 ENCODING = 'UTF8'
-LC_COLLATE = 'English_India.1252'
-LC_CTYPE = 'English_India.1252'
 TABLESPACE = pg_default
 CONNECTION_LIMIT = -1;
 
@@ -17,11 +23,6 @@ CREATE TABLE account(
     created_on TIMESTAMP NOT NULL,
     last_login TIMESTAMP NOT NULL
 );
-
-CREATE USER foodplanner;
-ALTER USER foodplanner PASSWORD 'bestFoodPlanner';
-
-GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO foodplannerdb;
 
 INSERT INTO account (user_id, username, password, email, first_name, last_name, created_on, last_login)
 VALUES (1, 'test', 'test', 'test@test.com', 'test', 'test', now(), now());
