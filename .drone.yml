@@ -52,15 +52,13 @@ steps:
 
 - name: deploy_database
   image: plugins/docker
+  pull: true
   settings:
     repo: build.hdap.gatech.edu/foodplanner2/food-planner-database
     context: food-planner-database
     dockerfile: food-planner-database/Dockerfile
     tags:
       - latest
-    commands:
-      - docker ps
-
 # Pull down the templates for deployment to HDAP K8S
 - name: get_chart_builder
   image: docker:git
