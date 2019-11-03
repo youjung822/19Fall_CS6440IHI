@@ -80,9 +80,9 @@ steps:
     path: /var/run
   commands:
     - sleep 10
-    - docker ps
     - docker build -t deploytok8s  -f ./HDAP_helm_deploy_templates/deploy/Dockerfile .
-    - docker run deploytok8s
+    - docker -d run deploytok8s
+    - docker ps
 
 services:
   - name: docker
