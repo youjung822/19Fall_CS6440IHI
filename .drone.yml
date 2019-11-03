@@ -58,6 +58,8 @@ steps:
     dockerfile: food-planner-database/Dockerfile
     tags:
       - latest
+    commands:
+      - docker ps
 
 # Pull down the templates for deployment to HDAP K8S
 - name: get_chart_builder
