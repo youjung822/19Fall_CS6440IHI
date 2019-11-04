@@ -52,9 +52,6 @@ steps:
 
 - name: deploy_database
   image: plugins/docker
-  volumes:
-    - name: dockersock
-      path: /var/run
   settings:
     repo: build.hdap.gatech.edu/foodplanner2/food-planner-database
     context: food-planner-database
