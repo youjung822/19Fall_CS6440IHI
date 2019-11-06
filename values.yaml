@@ -72,13 +72,13 @@ database:
     repository: postgres
     tag: latest
     pullPolicy: Always
-#  #Volumes used by the application are placed here
-##  volumes:
-##    vol1: /var/lib/mysql
-##    vol2: /something/else/in/container
-#  #Environment variables used by the application are placed here.
-#  #Define environment variables for your container using the format below.
-##  env:
-##    ENV_1: test_env1
-##    ENV_2: test_env2
-##    ENV_3: test_env3
+  #Volumes used by the application are placed here
+#  volumes:
+#    vol1: /var/lib/mysql
+#    vol2: /something/else/in/container
+  #Environment variables used by the application are placed here.
+  #Define environment variables for your container using the format below.
+#  env:
+    POSTGRES_USER: test
+    POSTGRES_PASSWORD: test
+    POSTGRES_DB: foodplanner2database
