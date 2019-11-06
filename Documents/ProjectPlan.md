@@ -12,12 +12,18 @@ Food Planner is a tool to guide people in the direction of meal planning based o
 ## Project Scope
 The scope of this project is to enable a user to login to the Web App and select eligible ingredients/food items based on the condition/allergy they have mentioned.
 
-## Process Description
+### **Research**
 
-Our team will be contributing to work on the below activities, in that manner. But, first we need to define the Communication pathways. We all will be communicating primarily in WhatsApp group chat sessions. Secondary option is Slack. And finally, all the meetings will be held on Google Hangouts.
-The first step was to meet with the assigned TA to our Food Planner App and discuss the expectations and requirements. It was a very successful meeting and our TA - Taylor was able to resolve a lot of our concerns. We had initially thought to just build the App where we would recommend ingredients based on the conditions/allergies selected by the user. But as per our discussion with Taylor (TA) we are now trying to come up with ideas on how to use the ingredients to further recommend various recipes based on the filter of conditions and ingredients.
+We started our research with a discussion with the TA - Taylor. Taylor was able to resolve a lot of our concerns. We had initially thought to just build the App where we would recommend ingredients based on the conditions/allergies selected by the user. But as per our discussion with Taylor (TA) we are now trying to come up with ideas on how to use the ingredients to further recommend various recipes based on the filter of conditions and ingredients. 
 
 Beyond the meeting, our team started doing research on the App and found some similar websites like spoonacular.com or foodplannerapp.com. We got some really good ideas from these Apps, though our App will be different in many ways. 
+
+As we progressed, we have started using APIs of Spoonacular.com and based on further discussions we have pivoted to Allergies instead of Conditions (as of Nov 1, 2019). The App would let the user select their Allergies and Ingredients and then on the Recipe screen, user would be able to search for recipes by establishing filters based on Allergies and Ingredients. The user would also be able to select a cuisine of their choice.
+
+## Processes and Communication Channels
+
+Our team will be contributing to work on the below activities, in that manner. But, first we need to define the Communication pathways. We all will be communicating primarily in WhatsApp group chat sessions. Secondary option is Slack. And finally, all the meetings will be held on Google Hangouts.
+The first step was to meet with the assigned TA to our Food Planner App and discuss the expectations and requirements. 
 
 The Team has started working on the below activities/deliverables and will be meeting twice a week to discuss and review the progress and future tasks.
 
@@ -41,7 +47,7 @@ The Team has started working on the below activities/deliverables and will be me
 - Donald Ford
 - Dale Park
 - Andrew Lo
-- Youjung Kim
+- Youjung Kim (Angela)
 - Vaneesh Bahl
 
 ### Roles
@@ -59,4 +65,4 @@ Donald Ford   | Developer
 Dale Park     | Project Manager
 Vaneesh Bahl  | Quality Analyst/Manager
 Andrew Lo     | Developer
-Youjung Kim   | Developer
+Youjung Kim (Angela)   | Developer
