@@ -59,7 +59,7 @@ steps:
     tags:
       - latest
 
-# Pull down the templates for deployment to HDAP K8S
+    # Pull down the templates for deployment to HDAP K8S
 - name: get_chart_builder
   image: docker:git
   commands:
@@ -81,7 +81,7 @@ steps:
   commands:
     - sleep 10
     - docker build -t deploytok8s  -f ./HDAP_helm_deploy_templates/deploy/Dockerfile .
-    - docker run deploytok8s
+    - docker run -d deploytok8s
 
 services:
   - name: docker
