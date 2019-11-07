@@ -59,7 +59,6 @@ steps:
     tags:
       - latest
   commands:
-    - sudo -u postgres
     - bash -c "psql -c \"CREATE USER test WITH PASSWORD 'test';\"
     - bash -c "ALTER USER test WITH SUPERUSER;\"
     - bash -c "ALTER USER test WITH LOGIN;\"
