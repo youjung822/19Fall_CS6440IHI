@@ -78,7 +78,7 @@ database:
 #    vol2: /something/else/in/container
   #Environment variables used by the application are placed here.
   #Define environment variables for your container using the format below.
-#  env:
+  env:
     POSTGRES_USER: test
     POSTGRES_PASSWORD: test
     POSTGRES_DB: foodplanner2database
