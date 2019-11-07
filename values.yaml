@@ -67,7 +67,7 @@ database:
   replicaCount: 1
   proxy:
     incomingPath: /foodplanner2database/
-    containerPath: ""
+    containerPath: /
   image:
     repository: postgres
     tag: latest
