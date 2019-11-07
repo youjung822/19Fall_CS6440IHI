@@ -32,23 +32,23 @@ steps:
 #      - latest
 
 # Create Docker image and push to HDAP Docker registry
-- name: deploy_front_end_application_image
-  image: plugins/docker
-  settings:
-    repo: build.hdap.gatech.edu/foodplanner2/food-planner-front-end
-    context: food-planner-front-end
-    dockerfile: food-planner-front-end/Dockerfile
-    tags:
-      - latest
+#- name: deploy_front_end_application_image
+#  image: plugins/docker
+#  settings:
+#    repo: build.hdap.gatech.edu/foodplanner2/food-planner-front-end
+#    context: food-planner-front-end
+#    dockerfile: food-planner-front-end/Dockerfile
+#    tags:
+#      - latest
 
-- name: deploy_back_end_application_image
-  image: plugins/docker
-  settings:
-    repo: build.hdap.gatech.edu/foodplanner2/food-planner-back-end
-    context: food-planner-back-end
-    dockerfile: food-planner-back-end/Dockerfile
-    tags:
-      - latest
+#- name: deploy_back_end_application_image
+#  image: plugins/docker
+#  settings:
+#    repo: build.hdap.gatech.edu/foodplanner2/food-planner-back-end
+#    context: food-planner-back-end
+#    dockerfile: food-planner-back-end/Dockerfile
+#    tags:
+#      - latest
 
 - name: deploy_database
   image: plugins/docker
@@ -59,9 +59,9 @@ steps:
     tags:
       - latest
   commands:
-    - bash -c "psql -c \"CREATE USER test WITH PASSWORD 'test';\"
-    - bash -c "ALTER USER test WITH SUPERUSER;\"
-    - bash -c "ALTER USER test WITH LOGIN;\"
+    - psql -c \"CREATE USER test WITH PASSWORD 'test';
+    - ALTER USER test WITH SUPERUSER;
+    - ALTER USER test WITH LOGIN;
 
     # Pull down the templates for deployment to HDAP K8S
 - name: get_chart_builder
