@@ -36,7 +36,7 @@ frontend:
 backend:
   #name is a DNS-1035 label and must consist of lower case alphanumeric characters or '-', start with an alphabetic character, and end with an alphanumeric character (e.g. 'my-name',  or 'abc-123')
   name: newfoodplanner2backend
-  port: 5432
+  port: 80
   replicaCount: 1
   proxy:
     incomingPath: /newfoodplanner2backend/
