@@ -9,7 +9,7 @@ public class TestDatabase {
     public List<String> test() {
         List<String> result = new ArrayList<>();
 
-        try (Connection connection = DriverManager.getConnection("jdbc:postgresql://foodplanner2database:5432/foodplanner2database", "test", "test")) {
+        try (Connection connection = DriverManager.getConnection("jdbc:postgresql://foodplanner2database-service:5432/foodplanner2database", "test", "test")) {
 
             System.out.println("Java JDBC PostgreSQL Example");
             // When this class first attempts to establish a connection, it automatically loads any JDBC 4.0 drivers found within
