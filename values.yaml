@@ -69,7 +69,7 @@ database:
     incomingPath: /foodplanner2database/
     containerPath: ""
   image:
-    repository: postgres
+    repository: build.hdap.gatech.edu/foodplanner2/food-planner-database
     tag: latest
     pullPolicy: Always
   #Volumes used by the application are placed here
