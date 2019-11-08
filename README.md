@@ -9,7 +9,7 @@ A tool to help guide people in the direction of meal planning based on current c
 2. start all services `docker-compose up`
 3. stopping all services `docker-compose down`
 
-All in one `docker-compose down; docker-compose up; docker-compose down;`
+All in one `docker-compose down; docker-compose build; docker-compose up;`
 
 Frontend URL: http://localhost:3000/  
 Backend URL: http://localhost:8080/  
