@@ -8,9 +8,9 @@ GRANT foodplanner TO test;
 
 ALTER USER test WITH SUPERUSER LOGIN;
 
--- CREATE DATABASE foodplanner2database
+-- CREATE DATABASE foodpl
 -- WITH
--- OWNER = foodplanner
+-- OWNER = test
 -- ENCODING = 'UTF8'
 -- TABLESPACE = pg_default
 -- CONNECTION_LIMIT = -1;
@@ -28,3 +28,5 @@ CREATE TABLE account(
 
 INSERT INTO account (user_id, username, password, email, first_name, last_name, created_on, last_login)
 VALUES (1, 'test', 'test', 'test@test.com', 'test', 'test', now(), now());
+
+SELECT datname FROM pg_database;
