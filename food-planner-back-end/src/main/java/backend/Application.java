@@ -31,8 +31,8 @@ public class Application {
     }
 
     @RequestMapping("/test")
-    public String status() {
-        return "Good.";
+    public String test() {
+        return "test.";
     }
 
     @RequestMapping(value = "/ingredients", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
