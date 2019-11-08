@@ -6,12 +6,14 @@ CREATE USER test;
 ALTER USER test PASSWORD 'test';
 GRANT foodplanner TO test;
 
-CREATE DATABASE foodplanner2database
-WITH
-OWNER = foodplanner
-ENCODING = 'UTF8'
-TABLESPACE = pg_default
-CONNECTION_LIMIT = -1;
+ALTER USER test WITH SUPERUSER LOGIN;
+
+-- CREATE DATABASE foodplanner2database
+-- WITH
+-- OWNER = foodplanner
+-- ENCODING = 'UTF8'
+-- TABLESPACE = pg_default
+-- CONNECTION_LIMIT = -1;
 
 CREATE TABLE account(
     user_id serial PRIMARY KEY,
