@@ -30,6 +30,11 @@ public class Application {
         return "Good.";
     }
 
+    @RequestMapping("/test")
+    public String test() {
+        return "test.";
+    }
+
     @RequestMapping(value = "/ingredients", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public List<String> listIngredients() {

@@ -67,7 +67,7 @@ database:
   replicaCount: 1
   proxy:
     incomingPath: /foodplanner2database/
-    containerPath: ""
+    containerPath: /
   image:
     repository: build.hdap.gatech.edu/foodplanner2/food-planner-database
     tag: latest
