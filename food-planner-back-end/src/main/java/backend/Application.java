@@ -14,6 +14,7 @@ import java.util.List;
 @RestController
 public class Application {
     Ingredients ingredients = new Ingredients();
+    TestDatabase db = new TestDatabase();
 
     @RequestMapping("/")
     public String home() {
@@ -32,7 +33,7 @@ public class Application {
 
     @RequestMapping("/test")
     public String test() {
-        return "test.";
+        return String.join(", ", db.test);
     }
 
     @RequestMapping(value = "/ingredients", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
