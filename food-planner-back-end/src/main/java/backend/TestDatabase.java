@@ -1,13 +1,15 @@
 package backend;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class TestDatabase {
 
     public List<String> test() {
         List<String> result = new ArrayList<>();
 
-        try (Connection connection = DriverManager.getConnection("jdbc:postgresql://foodplanner2database:5432", "test", "test")) {
+        try (Connection connection = DriverManager.getConnection("jdbc:postgresql://foodplanner2database:5432/foodplanner2database", "test", "test")) {
 
             System.out.println("Java JDBC PostgreSQL Example");
             // When this class first attempts to establish a connection, it automatically loads any JDBC 4.0 drivers found within
@@ -20,7 +22,7 @@ public class TestDatabase {
             ResultSet resultSet = statement.executeQuery("SELECT * FROM account;");
             while (resultSet.next()) {
                 System.out.printf("%-30.30s  %-30.30s%n", resultSet.getString("user_id"), resultSet.getString("username"));
-                result.add("%-30.30s  %-30.30s%n", resultSet.getString("user_id"), resultSet.getString("username");
+                result.add(resultSet.getString("user_id") + " " + resultSet.getString("username"));
             }
 
         } /*catch (ClassNotFoundException e) {
@@ -31,6 +33,6 @@ public class TestDatabase {
             e.printStackTrace();
         }
 
-        return result
+        return result;
     }
 }

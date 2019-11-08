@@ -31,9 +31,10 @@ public class Application {
         return "Good.";
     }
 
-    @RequestMapping("/test")
-    public String test() {
-        return String.join(", ", db.test);
+    @RequestMapping("/testdb")
+    public String testdb() {
+        System.out.println("I am here.");
+        return String.join(", ", db.test());
     }
 
     @RequestMapping(value = "/ingredients", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
