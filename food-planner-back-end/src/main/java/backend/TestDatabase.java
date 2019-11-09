@@ -1,15 +1,41 @@
 package backend;
 
-import java.sql.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
+import org.springframework.stereotype.Component;
+
 import java.util.ArrayList;
 import java.util.List;
 
+@Component
 public class TestDatabase {
+
+    private static final Logger logger = LoggerFactory.getLogger(TestDatabase.class);
+
+    @Autowired
+    private Environment environment;
+
+//    @Value("${spring.datasource.url}")
+//    String url;
+//
+//    @Value("${spring.datasource.username}")
+//    String username;
+//
+//    @Value("${spring.datasource.password}")
+//    String password;
 
     public List<String> test() {
         List<String> result = new ArrayList<>();
 
-        try (Connection connection = DriverManager.getConnection("jdbc:postgresql://foodplanner2database-service:5432/foodplanner2database", "test", "test")) {
+        String url = environment.getProperty("spring.datasource.url");
+        String username = environment.getProperty("spring.datasource.username");
+        String password = environment.getProperty("spring.datasource.password");
+
+        logger.info("Trying to connect to: " + url);
+
+        try (Connection connection = DriverManager.getConnection(url, username, password)) {
 
             System.out.println("Java JDBC PostgreSQL Example");
             // When this class first attempts to establish a connection, it automatically loads any JDBC 4.0 drivers found within
@@ -30,7 +56,7 @@ public class TestDatabase {
         e.printStackTrace();
         }*/ catch (SQLException e) {
             System.out.println("Connection failure.");
-            e.printStackTrace();
+            logger.debug("Connection failure.", e);
         }
 
         return result;

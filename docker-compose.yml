@@ -13,12 +13,10 @@ services:
     ports:
       - "8080:80" # Forward the exposed port 8080 on the container to port 8080 on the host machine
     restart: always
-#    depends_on:
-#      - db # This service depends on mysql. Start that first.
-#    environment: # Pass environment variables to the service
-#      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/polls?useSSL=false&serverTimezone=UTC&useLegacyDatetimeCode=false
-#      SPRING_DATASOURCE_USERNAME: callicoder
-#      SPRING_DATASOURCE_PASSWORD: callicoder
+    depends_on:
+      - db # This service depends on mysql. Start that first.
+    environment: # Pass environment variables to the service
+      ENV: local
     networks: # Networks to join (Services on the same network can communicate with each other using their name)
       - backend
       - frontend
@@ -36,9 +34,10 @@ services:
     depends_on:
       - app-server
     networks:
+      - backend
       - frontend
 
-#  # Database Service (Mysql)
+  # Database Service (Mysql)
 #  db:
 #    image: mysql:5.7
 #    ports:
@@ -50,20 +49,24 @@ services:
 #      MYSQL_PASSWORD: callicoder
 #      MYSQL_ROOT_PASSWORD: root
 #    volumes:
-#      - db-data:/var/lib/mysql
-#    networks:
-#      - backend
-  postgres:
+  db:
     build:
       context: food-planner-database
       dockerfile: Dockerfile
     restart: always
     ports:
       - "5432:5432"
+    environment:
+      SPRING_DATASOURCE_URL: "localhost:5432/foodplanner2database"
+      SPRING_DATASOURCE_USERNAME: "test"
+      SPRING_DATASOURCE_PASSWORD: "test"
+    networks:
+      - backend
+      - frontend
 
 # Volumes
-volumes:
-  db-data:
+#volumes:
+#  db-data:
 
 # Networks to be created to facilitate communication between containers
 networks:

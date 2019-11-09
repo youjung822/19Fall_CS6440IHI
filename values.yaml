@@ -24,10 +24,8 @@ frontend:
 #    vol2: /something/else/in/container
 #Environment variables used by the application are placed here.
 #Define environment variables for your container using the format below.
-#  env:
-#    ENV_1: test_env1
-#    ENV_2: test_env2
-#    ENV_3: test_env3
+  env:
+    ENV: production
 
 # Default values for a backend API web service.
 # This is a YAML-formatted file.
@@ -51,8 +49,8 @@ backend:
 #    vol2: /something/else/in/container
 #Environment variables used by the application are placed here.
 #Define environment variables for your container using the format below.
-#  env:
-#    ENV_1: test_env1
+  env:
+    ENV: production
 #    ENV_2: test_env2
 #    ENV_3: test_env3
 
