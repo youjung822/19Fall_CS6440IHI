@@ -20,6 +20,8 @@ Beyond the meeting, our team started doing research on the App and found some si
 
 As we progressed, we have started using APIs of Spoonacular.com and based on further discussions we have pivoted to Allergies instead of Conditions (as of Nov 1, 2019). The App would let the user select their Allergies and Ingredients and then on the Recipe screen, user would be able to search for recipes by establishing filters based on Allergies and Ingredients. The user would also be able to select a cuisine of their choice.
 
+<u>Nov 10, 2019 Updates</u> - Taylor had recommended to setup a login page for the user. Our team had previously setup the front end for the same. This week we worked on to setup the database to store the login credentials and the data for users. This would let the App retain the selections that the user made when the logged in the last time i.e. information like their allergies and ingredients selection. Once the database is ready we will then work to hook up everything from the front end as well (probably next week).
+
 ## Processes and Communication Channels
 
 Our team will be contributing to work on the below activities, in that manner. But, first we need to define the Communication pathways. We all will be communicating primarily in WhatsApp group chat sessions. Secondary option is Slack. And finally, all the meetings will be held on Google Hangouts.
