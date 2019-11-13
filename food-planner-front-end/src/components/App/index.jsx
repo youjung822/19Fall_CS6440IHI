@@ -3,10 +3,18 @@ import { Route, Switch, Link } from 'react-router-dom';
 
 import { Wrapper, NavWrapper, Content, NavBar, Welcome } from './styles';
 
-import { Login, SideNav, Conditions, Ingredients, Recipes } from '../';
+import {
+  Login,
+  SideNav,
+  Conditions,
+  Ingredients,
+  Recipes,
+  NutritionModal
+} from '../';
 
 import paths from '../../lib/paths';
 import { getCookie } from '../../lib/cookies';
+import { getNutrition } from '../../lib/nutrition';
 
 const toggleList = (list, val) => {
   const copy = [...list];
@@ -17,6 +25,15 @@ const toggleList = (list, val) => {
   return copy;
 };
 
+// const DUMMY_NUTRITION = {
+//   // bad: (7) [{…}, {…}, {…}, {…}, {…}, {…}, {…}]
+//   calories: '398',
+//   carbs: '82g',
+//   fat: '5g',
+//   // good: (21) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+//   protein: '6g'
+// };
+
 export default function App() {
   const [username, setUsername] = useState(getCookie('username'));
   const [allergies, setAllergies] = useState([]);
@@ -26,6 +43,7 @@ export default function App() {
   const [filterByCondition, setFilterByCondition] = useState(false);
   const [filterByIngredients, setFilterByIngredients] = useState(false);
   const [keywords, setKeywords] = useState('');
+  const [nutritionInfo, setNutritionInfo] = useState(null);
 
   const toggleCondition = value => {
     setAllergies(toggleList(allergies, value));
@@ -33,9 +51,20 @@ export default function App() {
   const toggleIngredient = value => {
     setIngredients(toggleList(ingredients, value));
   };
+  const onViewNutrition = async id => {
+    const nutrition = await getNutrition(id);
+    setNutritionInfo(nutrition);
+  };
 
   return (
     <Wrapper>
+      {nutritionInfo && (
+        <NutritionModal
+          open={Boolean(nutritionInfo)}
+          nutritionInfo={nutritionInfo}
+          onClose={() => setNutritionInfo(null)}
+        />
+      )}
       <NavBar>
         <Welcome>{username ? `Welcome, ${username}!` : ''}</Welcome>
         <Link
@@ -100,6 +129,7 @@ export default function App() {
                 setFilterByCondition={setFilterByCondition}
                 filterByIngredients={filterByIngredients}
                 setFilterByIngredients={setFilterByIngredients}
+                onViewNutrition={onViewNutrition}
               />
             )}
           />

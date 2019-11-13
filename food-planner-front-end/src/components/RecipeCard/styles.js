@@ -16,7 +16,6 @@ export const Wrapper = styled.div`
 export const Title = styled.div`
   font-size: 32px;
   font-weight: 600;
-  height: 74px;
   color: #132584;
 `;
 
@@ -28,4 +27,8 @@ export const ReadyIn = styled.div`
 
 export const ImageWrapper = styled.div`
   padding-bottom: 32px;
+`;
+
+export const ButtonWrapper = styled.div`
+  padding-top: 8px;
 `;

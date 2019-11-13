@@ -3,8 +3,8 @@ import Button from '@material-ui/core/Button';
 
 import { Wrapper, Title, ReadyIn, ImageWrapper } from './styles';
 
-export default function RecipeCard({ recipe }) {
-  const { title, readyInMinutes, sourceUrl, image } = recipe;
+export default function RecipeCard({ recipe, onViewNutrition }) {
+  const { title, readyInMinutes, sourceUrl, image, id } = recipe;
   return (
     <Wrapper>
       <Title>{title}</Title>
@@ -21,6 +21,14 @@ export default function RecipeCard({ recipe }) {
         >
           View Recipe
         </a>
+      </Button>
+      <br />
+      <Button
+        style={{ paddingTop: '8px' }}
+        variant="contained"
+        onClick={() => onViewNutrition(id)}
+      >
+        View Nutrition
       </Button>
     </Wrapper>
   );

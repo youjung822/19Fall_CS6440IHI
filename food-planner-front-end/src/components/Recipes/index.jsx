@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import Button from '@material-ui/core/Button';
-import Checkbox from '@material-ui/core/Checkbox';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import TextField from '@material-ui/core/TextField';
-import CircularProgress from '@material-ui/core/CircularProgress';
+import React, { useState } from "react";
+import Button from "@material-ui/core/Button";
+import Checkbox from "@material-ui/core/Checkbox";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import TextField from "@material-ui/core/TextField";
+import CircularProgress from "@material-ui/core/CircularProgress";
 
-import { Header, Select, RecipeCard } from '../';
+import { Header, Select, RecipeCard } from "../";
 import {
   Wrapper,
   FilterRow,
@@ -15,36 +15,36 @@ import {
   ResultHeading,
   LoadingHolder,
   Cards
-} from './styles';
-import { lookupRecipes } from '../../lib/recipes';
+} from "./styles";
+import { lookupRecipes } from "../../lib/recipes";
 
 const cuisines = [
-  'African',
-  'American',
-  'British',
-  'Cajun',
-  'Caribbean',
-  'Chinese',
-  'Eastern European',
-  'European',
-  'French',
-  'German',
-  'Greek',
-  'Indian',
-  'Irish',
-  'Italian',
-  'Japanese',
-  'Jewish',
-  'Korean',
-  'Latin American',
-  'Mediterranean',
-  'Mexican',
-  'Middle Eastern',
-  'Nordic',
-  'Southern',
-  'Spanish',
-  'Thai',
-  'Vietnamese'
+  "African",
+  "American",
+  "British",
+  "Cajun",
+  "Caribbean",
+  "Chinese",
+  "Eastern European",
+  "European",
+  "French",
+  "German",
+  "Greek",
+  "Indian",
+  "Irish",
+  "Italian",
+  "Japanese",
+  "Jewish",
+  "Korean",
+  "Latin American",
+  "Mediterranean",
+  "Mexican",
+  "Middle Eastern",
+  "Nordic",
+  "Southern",
+  "Spanish",
+  "Thai",
+  "Vietnamese"
 ].map(suggestion => ({
   value: suggestion,
   label: suggestion
@@ -62,7 +62,8 @@ export default function Recipes({
   filterByCondition,
   setFilterByCondition,
   filterByIngredients,
-  setFilterByIngredients
+  setFilterByIngredients,
+  onViewNutrition
 }) {
   const [isLoading, setIsLoading] = useState(false);
 
@@ -100,7 +101,7 @@ export default function Recipes({
                 onChange={() => setFilterByCondition(!filterByCondition)}
                 color="primary"
                 inputProps={{
-                  'aria-label': 'condition checkbox'
+                  "aria-label": "condition checkbox"
                 }}
               />
             }
@@ -115,7 +116,7 @@ export default function Recipes({
                 onChange={() => setFilterByIngredients(!filterByIngredients)}
                 color="primary"
                 inputProps={{
-                  'aria-label': 'ingredient checkbox'
+                  "aria-label": "ingredient checkbox"
                 }}
               />
             }
@@ -147,7 +148,11 @@ export default function Recipes({
       {!isLoading && (
         <Cards>
           {recipes.map(recipe => (
-            <RecipeCard key={recipe.title} recipe={recipe} />
+            <RecipeCard
+              key={recipe.title}
+              recipe={recipe}
+              onViewNutrition={onViewNutrition}
+            />
           ))}
         </Cards>
       )}
