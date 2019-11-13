@@ -16,17 +16,18 @@ ALTER USER test WITH SUPERUSER LOGIN;
 -- CONNECTION_LIMIT = -1;
 
 CREATE TABLE account(
-    user_id serial PRIMARY KEY,
+    id serial PRIMARY KEY,
     username VARCHAR(50) UNIQUE NOT NULL,
-    password VARCHAR(50) NOT NULL,
+    password VARCHAR(500) NOT NULL,
     email VARCHAR(355) NOT NULL,
     first_name VARCHAR(50) NOT NULL,
     last_name VARCHAR(50) NOT NULL,
     created_on TIMESTAMP NOT NULL,
-    last_login TIMESTAMP NOT NULL
+    last_login TIMESTAMP NOT NULL,
+    patient_id VARCHAR(50),
+    allergies VARCHAR(500),
+    conditions VARCHAR(500)
 );
 
-INSERT INTO account (user_id, username, password, email, first_name, last_name, created_on, last_login)
-VALUES (1, 'test', 'test', 'test@test.com', 'test', 'test', now(), now());
-
-SELECT datname FROM pg_database;
+INSERT INTO account (id, username, password, email, first_name, last_name, created_on, last_login, patient_id, allergies, conditions)
+VALUES (1, 'test', 'test', 'test@test.com', 'test', 'test', now(), now(), '12345', 'shrimp', 'heartburn');
