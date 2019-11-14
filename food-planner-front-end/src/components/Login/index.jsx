@@ -3,19 +3,34 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { Redirect } from 'react-router-dom';
 
-import { Wrapper, Title, Fields, Content, Creds } from './styles';
+import { Wrapper, Title, Fields, Content, Creds, Fail } from './styles';
 import paths from '../../lib/paths';
 import { setCookie } from '../../lib/cookies';
+import { passwordLogin } from '../../lib/login';
 
 export default function Login({ setLoggedInUser }) {
   const [loggedOn, setLoggedOn] = useState(false);
+  const [loggingIn, setLoggingIn] = useState(false);
   const [password, setPassword] = useState('');
   const [username, setUsername] = useState('');
+  const [loginError, setLoginError] = useState(false);
 
-  const onLogin = () => {
-    setCookie('username', username);
-    setLoggedInUser(username);
-    setLoggedOn(true);
+  const onLogin = async () => {
+    setLoginError(false);
+    setLoggingIn(true);
+    const userInfo = await passwordLogin(username, password);
+
+    if (userInfo) {
+      const { firstName, lastName } = userInfo;
+      const name = `${firstName} ${lastName}`;
+      setCookie('username', name);
+      setLoggedInUser(name);
+      setLoggedOn(true);
+    } else {
+      setLoginError(true);
+    }
+
+    setLoggingIn(false);
   };
 
   return (
@@ -44,11 +59,12 @@ export default function Login({ setLoggedInUser }) {
           />
         </Fields>
         <Button variant="contained" color="primary" onClick={onLogin}>
-          Login
+          {loggingIn ? 'Logging in...' : 'Login'}
         </Button>
+        {loginError && <Fail>Login Failed!</Fail>}
         <Creds>
           <div>Login in with example creds:</div>
-          <div>Username: john, Password: doe</div>
+          <div>Username: test, Password: test</div>
         </Creds>
       </Content>
     </Wrapper>

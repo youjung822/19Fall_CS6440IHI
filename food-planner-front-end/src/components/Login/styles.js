@@ -22,7 +22,7 @@ export const Content = styled.div`
   padding: 16px;
   border-radius: 8px;
   background: white;
-  height: 275px;
+  height: 300px;
   position: relative;
   box-shadow: 1px 1px 1px black;
 `;
@@ -48,4 +48,12 @@ export const Creds = styled.div`
   bottom: -50px;
   font-size: 16px;
   font-weight: bold;
+`;
+
+export const Fail = styled.div`
+  width: 100%;
+  text-align: center;
+  color: red;
+  padding-top: 12px;
+  font-size: 18px;
 `;
