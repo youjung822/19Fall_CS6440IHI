@@ -38,3 +38,11 @@ export const LoadingHolder = styled.div`
   justify-content: center;
   padding-top: 64px;
 `;
+
+export const NoResults = styled.div`
+  display: flex;
+  justify-content: center;
+  padding-top: 64px;
+  font-size: 20px;
+  font-weight: bold;
+`;
