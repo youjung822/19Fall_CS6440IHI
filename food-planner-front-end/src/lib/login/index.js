@@ -2,7 +2,9 @@ const url = 'https://apps.hdap.gatech.edu/newfoodplanner2backend/api/login';
 
 export async function passwordLogin(userName, password) {
   try {
-    const proxyurl = 'https://cors-anywhere.herokuapp.com/';
+    const proxyurl = window.location.href.includes('localhost')
+      ? 'https://cors-anywhere.herokuapp.com/'
+      : '';
 
     const response = await fetch(proxyurl + url, {
       method: 'POST',
