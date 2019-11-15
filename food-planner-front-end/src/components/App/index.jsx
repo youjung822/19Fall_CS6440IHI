@@ -16,6 +16,7 @@ import {
 import paths from '../../lib/paths';
 import { getCookie } from '../../lib/cookies';
 import { getNutrition } from '../../lib/nutrition';
+import { removeCookie } from '../../lib/cookies';
 
 const toggleList = (list, val) => {
   const copy = [...list];
@@ -56,6 +57,12 @@ export default function App() {
     const nutrition = await getNutrition(id);
     setNutritionInfo(nutrition);
   };
+  const onLoginClick = async id => {
+    if (username) {
+      setUsername(null);
+      removeCookie('username');
+    }
+  };
 
   return (
     <Wrapper>
@@ -70,6 +77,7 @@ export default function App() {
         <Welcome>{username ? `Welcome, ${username}!` : ''}</Welcome>
         <Link
           to={paths.login}
+          onClick={onLoginClick}
           style={{
             textDecoration: 'none',
             color: 'white',
