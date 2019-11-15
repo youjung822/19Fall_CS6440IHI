@@ -22,12 +22,15 @@ CREATE TABLE account(
     email VARCHAR(355) NOT NULL,
     first_name VARCHAR(50) NOT NULL,
     last_name VARCHAR(50) NOT NULL,
-    created_on TIMESTAMP NOT NULL,
-    last_login TIMESTAMP NOT NULL,
     patient_id VARCHAR(50),
     allergies VARCHAR(500),
     conditions VARCHAR(500)
 );
 
-INSERT INTO account (id, username, password, email, first_name, last_name, created_on, last_login, patient_id, allergies, conditions)
-VALUES (1, 'test', 'test', 'test@test.com', 'test', 'test', now(), now(), '12345', 'shrimp', 'heartburn');
+INSERT INTO account (id, username, password, email, first_name, last_name, patient_id, allergies, conditions)
+VALUES (1, 'test', 'test', 'johndoe@test.com', 'John', 'Doe', '12345', 'shrimp', 'heartburn');
+
+INSERT INTO account (id, username, password, email, first_name, last_name, patient_id, allergies, conditions)
+VALUES (2, 'emilywatson', 'password', 'emilywatson@test.com', 'Emily', 'Watson', '23456', 'shrimp', 'heartburn');
+
+alter sequence account_id_seq restart with 3;
