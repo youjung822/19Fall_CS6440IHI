@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 
-import { Wrapper, Title, Fields, Content, Creds, Fail } from './styles';
+import { Wrapper, Title, Fields, Content, Creds, Fail, SignUp } from './styles';
 import paths from '../../lib/paths';
 import { setCookie } from '../../lib/cookies';
 import { passwordLogin } from '../../lib/login';
@@ -62,6 +62,17 @@ export default function Login({ setLoggedInUser }) {
           {loggingIn ? 'Logging in...' : 'Login'}
         </Button>
         {loginError && <Fail>Login Failed!</Fail>}
+        <SignUp>
+          Don't have an account?{' '}
+          <Link
+            to={paths.createAccount}
+            style={{
+              textDecoration: 'none'
+            }}
+          >
+            Sign up!
+          </Link>
+        </SignUp>
         <Creds>
           <div>Login in with example creds:</div>
           <div>Username: test, Password: test</div>

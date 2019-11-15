@@ -18,11 +18,11 @@ export const Content = styled.div`
   width: 400px;
   display: flex;
   flex-direction: column;
-  margin-top: 200px;
+  margin-top: 150px;
   padding: 16px;
   border-radius: 8px;
   background: white;
-  height: 325px;
+  height: 540px;
   position: relative;
   box-shadow: 1px 1px 1px black;
 `;
@@ -41,28 +41,10 @@ export const Fields = styled.div`
   padding-bottom: 16px;
 `;
 
-export const Creds = styled.div`
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-  bottom: -50px;
-  font-size: 16px;
-  font-weight: bold;
-`;
-
 export const Fail = styled.div`
   width: 100%;
   text-align: center;
   color: red;
   padding-top: 12px;
   font-size: 18px;
-`;
-
-export const SignUp = styled.div`
-  width: 100%;
-  text-align: center;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  padding-bottom: 8px;
 `;

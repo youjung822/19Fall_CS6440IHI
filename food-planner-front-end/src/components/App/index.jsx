@@ -9,7 +9,8 @@ import {
   Conditions,
   Ingredients,
   Recipes,
-  NutritionModal
+  NutritionModal,
+  CreateAccount
 } from '../';
 
 import paths from '../../lib/paths';
@@ -75,7 +76,7 @@ export default function App() {
             paddingRight: '24px'
           }}
         >
-          Login
+          {username ? 'Logout' : 'Login'}
         </Link>
       </NavBar>
       <NavWrapper>
@@ -87,6 +88,13 @@ export default function App() {
             path={paths.login}
             exact
             render={props => <Login {...props} setLoggedInUser={setUsername} />}
+          />
+          <Route
+            path={paths.createAccount}
+            exact
+            render={props => (
+              <CreateAccount {...props} setLoggedInUser={setUsername} />
+            )}
           />
           <Route
             path={paths.allergies}
