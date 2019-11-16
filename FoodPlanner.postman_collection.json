@@ -1,0 +1,264 @@
+{
+	"info": {
+		"_postman_id": "46673bea-9cd1-4e9d-86fe-c5154c73b84b",
+		"name": "FoodPlanner",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Production - Get Ingredients",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "https://apps.hdap.gatech.edu/newfoodplanner2backend/ingredients"
+			},
+			"response": []
+		},
+		{
+			"name": "Production - Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"userName\": \"test\",\n    \"password\": \"test\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://apps.hdap.gatech.edu/newfoodplanner2backend/api/login"
+			},
+			"response": []
+		},
+		{
+			"name": "Production - Get All Patients",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": "https://apps.hdap.gatech.edu/newfoodplanner2backend/api/patients"
+			},
+			"response": []
+		},
+		{
+			"name": "Production - Get Patient by ID",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": "https://apps.hdap.gatech.edu/newfoodplanner2backend/api/patients/1"
+			},
+			"response": []
+		},
+		{
+			"name": "Production - Create new Patient",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"firstName\": \"test2\",\n    \"lastName\": \"test2\",\n    \"email\": \"test2@test.com\",\n    \"userName\": \"test2\",\n    \"password\": \"test2\",\n    \"allergies\": \"coconut\",\n    \"conditions\": \"Abdominal Adhesions\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://apps.hdap.gatech.edu/newfoodplanner2backend/api/patients"
+			},
+			"response": []
+		},
+		{
+			"name": "Production - Update Patient by ID",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"firstName\": \"test2\",\n    \"lastName\": \"test2\",\n    \"email\": \"test2@test.com\",\n    \"userName\": \"test2\",\n    \"password\": \"test2\",\n    \"allergies\": \"coconut\",\n    \"conditions\": \"Abdominal Adhesions\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://apps.hdap.gatech.edu/newfoodplanner2backend/api/patients/2"
+			},
+			"response": []
+		},
+		{
+			"name": "Production - Delete Patient Copy",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://apps.hdap.gatech.edu/newfoodplanner2backend/api/patients/1",
+				"description": "testing login feature"
+			},
+			"response": []
+		},
+		{
+			"name": "Development - Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"userName\": \"test\",\n    \"password\": \"test\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "Http://localhost:8080/api/login"
+			},
+			"response": []
+		},
+		{
+			"name": "Development - Get All Patient",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "Http://localhost:8080/api/patients"
+			},
+			"response": []
+		},
+		{
+			"name": "Development - Get Patient by ID",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": "Http://localhost:8080/api/patients/1"
+			},
+			"response": []
+		},
+		{
+			"name": "Development - Update Patient by ID",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"firstName\": \"test2\",\n    \"lastName\": \"test2\",\n    \"email\": \"test2@test.com\",\n    \"userName\": \"test2\",\n    \"password\": \"test2\",\n    \"allergies\": \"coconut\",\n    \"conditions\": \"Abdominal Adhesions\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "Http://localhost:8080/api/patients/1"
+			},
+			"response": []
+		},
+		{
+			"name": "Development - Create new Patient",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"firstName\": \"test2\",\n    \"lastName\": \"test2\",\n    \"email\": \"test2@test.com\",\n    \"userName\": \"test3\",\n    \"password\": \"test3\",\n    \"allergies\": \"coconut\",\n    \"conditions\": \"Abdominal Adhesions\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "Http://localhost:8080/api/patients"
+			},
+			"response": []
+		},
+		{
+			"name": "Development - Delete Patient",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "Http://localhost:8080/api/patients/1",
+				"description": "testing login feature"
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
