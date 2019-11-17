@@ -22,6 +22,8 @@ As we progressed, we have started using APIs of Spoonacular.com and based on fur
 
 <u>Nov 10, 2019 Updates</u> - Taylor had recommended to setup a login page for the user. Our team had previously setup the front end for the same. This week we worked on to setup the database to store the login credentials and the data for users. This would let the App retain the selections that the user made when the logged in the last time i.e. information like their allergies and ingredients selection. Once the database is ready we will then work to hook up everything from the front end as well (probably next week).
 
+Nov 17, 2019 Updates</u> - Team did research on connecting the FHIR APIs to the Food Planner App to get an exhaustive list of allergies and ingredients. Apart from that we also worked on to find ways to set up the login page and connecting the front end to the login database. Now the App is able to retain the account information of the users who have signed up previously. We had planned to complete all this work last week but due to some configuration issues we had to investigate more ways to achieve the tasks.
+
 ## Processes and Communication Channels
 
 Our team will be contributing to work on the below activities, in that manner. But, first we need to define the Communication pathways. We all will be communicating primarily in WhatsApp group chat sessions. Secondary option is Slack. And finally, all the meetings will be held on Google Hangouts.
