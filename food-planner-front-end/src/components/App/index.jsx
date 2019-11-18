@@ -27,15 +27,6 @@ const toggleList = (list, val) => {
   return copy;
 };
 
-// const DUMMY_NUTRITION = {
-//   // bad: (7) [{…}, {…}, {…}, {…}, {…}, {…}, {…}]
-//   calories: '398',
-//   carbs: '82g',
-//   fat: '5g',
-//   // good: (21) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
-//   protein: '6g'
-// };
-
 export default function App() {
   const [username, setUsername] = useState(getCookie('username'));
   const [allergies, setAllergies] = useState([]);
@@ -61,6 +52,13 @@ export default function App() {
     if (username) {
       setUsername(null);
       removeCookie('username');
+      setAllergies([]);
+      setIngredients([]);
+      setRecipes([]);
+      setCuisine(null);
+      setFilterByCondition(false);
+      setFilterByIngredients(false);
+      setKeywords('');
     }
   };
 
@@ -95,7 +93,13 @@ export default function App() {
           <Route
             path={paths.login}
             exact
-            render={props => <Login {...props} setLoggedInUser={setUsername} />}
+            render={props => (
+              <Login
+                {...props}
+                setLoggedInUser={setUsername}
+                setAllergies={setAllergies}
+              />
+            )}
           />
           <Route
             path={paths.createAccount}

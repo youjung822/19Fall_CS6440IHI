@@ -17,9 +17,7 @@ export async function createAccount(
       lastName,
       email,
       userName,
-      password,
-      allergies: '',
-      conditions: ''
+      password
     };
 
     const response = await fetch(proxyurl + url, {
