@@ -6,7 +6,7 @@ import { lookupIngredients } from '../../lib/ingredients';
 
 export default function Ingredients({ ingredients, toggleIngredient }) {
   const loadOptions = async (inputValue, callback) => {
-    if (inputValue.length >= 3) {
+    if (inputValue.length >= 1) {
       const suggestions = await lookupIngredients(inputValue);
 
       const filteredSuggestions = suggestions.filter(
