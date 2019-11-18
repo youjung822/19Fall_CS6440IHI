@@ -34,16 +34,28 @@
     **Content:** 
     ```
     [
-      {
-          "id": 1,
-          "firstName": "test",
-          "lastName": "test",
-          "email": "test@test.com",
-          "userName": "test",
-          "password": "test",
-          "allergies": "shrimp",
-          "conditions": "heartburn"
-      }
+        {
+            "id": 1,
+            "firstName": "John",
+            "lastName": "Doe",
+            "email": "johndoe@test.com",
+            "userName": "test",
+            "password": "test",
+            "allergies": null,
+            "conditions": null,
+            "patientId": "2629194"
+        },
+        {
+            "id": 2,
+            "firstName": "Luis FHIR",
+            "lastName": "Madrid",
+            "email": "luisfhirmadrid@test.com",
+            "userName": "luisfhirmadrid",
+            "password": "password",
+            "allergies": null,
+            "conditions": null,
+            "patientId": "2638050"
+        }
     ]
     ```
  
@@ -54,23 +66,18 @@
 * **Sample Call:**
 
   ```
-    GET /newfoodplanner2backend/api/patients HTTP/1.1
-    Host: apps.hdap.gatech.edu
-    Content-Type: application/json
-    User-Agent: PostmanRuntime/7.19.0
-    Accept: */*
-    Cache-Control: no-cache
-    Postman-Token: 305976b2-a08f-409a-a94b-6b729c477a5e,885bf36d-6d1e-4e56-93d0-920dee558337
-    Host: apps.hdap.gatech.edu
-    Accept-Encoding: gzip, deflate
-    Content-Length: 51
-    Connection: keep-alive
-    cache-control: no-cache
+  GET //newfoodplanner2backend/api/patients HTTP/1.1
+  Host: Http:
+  User-Agent: PostmanRuntime/7.19.0
+  Accept: */*
+  Cache-Control: no-cache
+  Postman-Token: d2cf4c3c-59a6-417e-9cfa-e04485b8783e,09b7d160-cd72-4498-a559-c2bf4ab38650
+  Host: localhost:8080
+  Accept-Encoding: gzip, deflate
+  Connection: keep-alive
+  cache-control: no-cache
+  
 
-    {
-        "userName": "test",
-        "password": "test1"
-    }
   ```
   
   
@@ -100,13 +107,45 @@
 * **Success Response:**
 
   * **Code:** 200 <br />
-    **Content:** `{ id : 12, name : "Michael Bloom" }`
+    **Content:** 
+    ```
+    {
+        "id": 1,
+        "firstName": "test2",
+        "lastName": "test2",
+        "email": "test2@test.com",
+        "userName": "test",
+        "password": "test2",
+        "allergies": [
+            "Allergy to eggs",
+            "Ibuprofen"
+        ],
+        "conditions": [
+            "depression",
+            "hypertension",
+            "diabetes",
+            "asthma",
+            "angina",
+            "onychomycosis",
+            "high cholesterol",
+            "GERD",
+            "rheumatoid arthritis",
+            "neuropathic pain"
+        ],
+        "patientId": "2629194"
+    }
+    ```
  
 * **Error Response:**
 
   * **Code:** 404 NOT FOUND <br />
     **Content:** 
     ```
+    {
+        "timestamp": "2019-11-18T02:10:47.324+0000",
+        "message": "Patient not found: 9",
+        "details": "uri=/api/patients/9"
+    }
     ```
 
   OR
@@ -158,8 +197,7 @@
   
      **Optional:**
    
-     `allergies=[alphanumeric]`
-     `conditions=[alphanumeric]`
+     None
 
 * **Success Response:**
 
@@ -172,9 +210,7 @@
         "lastName": "test2",
         "email": "test2@test.com",
         "userName": "test2",
-        "password": "test2",
-        "allergies": "banana",
-        "conditions": "Abdominal Adhesions"
+        "password": "test2"
     }
     ```
     
@@ -216,9 +252,7 @@
       "lastName": "test2",
       "email": "test2@test.com",
       "userName": "test3",
-      "password": "test3",
-      "allergies": "coconut",
-      "conditions": "Abdominal Adhesions"
+      "password": "test3"
   }
   ```  
   
@@ -248,8 +282,7 @@ Returns json data for a patient by ID
 
    **Optional:**
  
-   `allergies=[alphanumeric]`
-   `conditions=[alphanumeric]`
+    None
 
 * **Success Response:**
 
@@ -262,9 +295,7 @@ Returns json data for a patient by ID
       "lastName": "test2",
       "email": "test2@test.com",
       "userName": "emilywatson",
-      "password": "test2",
-      "allergies": "coconut",
-      "conditions": "Abdominal Adhesions"
+      "password": "test2"
   }
   ```
   
@@ -469,5 +500,3 @@ OR
       "password": "test"
     }
     ```  
-  
-

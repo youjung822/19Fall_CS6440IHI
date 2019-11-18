@@ -1,6 +1,7 @@
 package backend.model;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "account")
@@ -12,8 +13,14 @@ public class Patient {
     private String email;
     private String userName;
     private String password;
-    private String allergies;
-    private String conditions;
+
+    @Transient
+    private List<String> allergies;
+
+    @Transient
+    private List<String> conditions;
+
+    private String patientId;
 
     public Patient() {
     }
@@ -81,23 +88,33 @@ public class Patient {
         this.password = password;
     }
 
-    @Column(name = "allergies", nullable = true)
-    public String getAllergies() {
+    @Transient
+    public List<String> getAllergies() {
         return allergies;
     }
 
-    public void setAllergies(String allergies) {
+    public void setAllergies(List<String> allergies) {
         this.allergies = allergies;
     }
 
-    @Column(name = "conditions", nullable = true)
-    public String getConditions() {
+    @Transient
+    public List<String> getConditions() {
         return conditions;
     }
 
-    public void setConditions(String conditions) {
+    public void setConditions(List<String> conditions) {
         this.conditions = conditions;
     }
+
+    @Column(name = "patient_id", nullable = false)
+    public String getPatientId() {
+        return patientId;
+    }
+
+    public void setPatientId(String patientId) {
+        this.patientId = patientId;
+    }
+
 
     @Override
     public String toString() {

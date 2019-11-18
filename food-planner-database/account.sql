@@ -16,42 +16,40 @@ ALTER USER test WITH SUPERUSER LOGIN;
 -- CONNECTION_LIMIT = -1;
 
 CREATE TABLE account(
-    id serial PRIMARY KEY,
-    username VARCHAR(50) UNIQUE NOT NULL,
-    password VARCHAR(500) NOT NULL,
-    email VARCHAR(355) NOT NULL,
-    first_name VARCHAR(50) NOT NULL,
-    last_name VARCHAR(50) NOT NULL,
-    patient_id VARCHAR(50),
-    allergies VARCHAR(500),
-    conditions VARCHAR(500)
+                        id serial PRIMARY KEY,
+                        username VARCHAR(50) UNIQUE NOT NULL,
+                        password VARCHAR(500) NOT NULL,
+                        email VARCHAR(355) NOT NULL,
+                        first_name VARCHAR(50) NOT NULL,
+                        last_name VARCHAR(50) NOT NULL,
+                        patient_id VARCHAR(50)
 );
 
-INSERT INTO account (id, username, password, email, first_name, last_name, patient_id, allergies, conditions)
-VALUES (1, 'test', 'test', 'johndoe@test.com', 'John', 'Doe', '12345', 'Shrimp', 'Heartburn');
+INSERT INTO account (id, username, password, email, first_name, last_name, patient_id)
+VALUES (1, 'test', 'test', 'johndoe@test.com', 'John', 'Doe', '2629194');
 
-INSERT INTO account (id, username, password, email, first_name, last_name, patient_id, allergies, conditions)
-VALUES (2, 'emilywatson', 'password', 'emilywatson@test.com', 'Emily', 'Watson', '23456', 'Shrimp', 'Heartburn');
+INSERT INTO account (id, username, password, email, first_name, last_name, patient_id)
+VALUES (2, 'luisfhirmadrid', 'password', 'luisfhirmadrid@test.com', 'Luis FHIR', 'Madrid', '2638050');
 
-INSERT INTO account (id, username, password, email, first_name, last_name, patient_id, allergies, conditions)
-VALUES (3, 'smithensdonald', 'password', 'smithensdonald@test.com', 'Smithens', 'Donald', '30116', 'Dairy,Gluten,Egg', 'Diabetes');
+INSERT INTO account (id, username, password, email, first_name, last_name, patient_id)
+VALUES (3, 'smithensdonald', 'password', 'smithensdonald@test.com', 'Smithens', 'Donald', '30116');
 
-INSERT INTO account (id, username, password, email, first_name, last_name, patient_id, allergies, conditions)
-VALUES (4, 'smithjohn', 'password', 'smithjohn@test.com', 'Smith', 'John', '42221', 'Dairy,Gluten,Egg', 'Diabetes');
+INSERT INTO account (id, username, password, email, first_name, last_name, patient_id)
+VALUES (4, 'smithjohn', 'password', 'smithjohn@test.com', 'Smith', 'John', '42221');
 
-INSERT INTO account (id, username, password, email, first_name, last_name, patient_id, allergies, conditions)
-VALUES (5, 'smitheringjohn', 'password', 'smitheringjohn@test.com', 'Smithering', 'John', '96492', 'Peanut,Sesame', 'Fatigue');
+INSERT INTO account (id, username, password, email, first_name, last_name, patient_id)
+VALUES (5, 'smitheringjohn', 'password', 'smitheringjohn@test.com', 'Smithering', 'John', '96492');
 
-INSERT INTO account (id, username, password, email, first_name, last_name, patient_id, allergies, conditions)
-VALUES (6, 'smithjane', 'password', 'smithjane@test.com', 'Smith', 'Jane', '1426955', 'Shellfish,Wheat', 'Headaches');
+INSERT INTO account (id, username, password, email, first_name, last_name, patient_id)
+VALUES (6, 'smithjane', 'password', 'smithjane@test.com', 'Smith', 'Jane', '1426955');
 
-INSERT INTO account (id, username, password, email, first_name, last_name, patient_id, allergies, conditions)
-VALUES (7, 'luisperez', 'password', 'luisperez@test.com', 'Luis', 'Perez', '1565595', 'Grain,Soy', 'Fatigue,Headaches');
+INSERT INTO account (id, username, password, email, first_name, last_name, patient_id)
+VALUES (7, 'luisperez', 'password', 'luisperez@test.com', 'Luis', 'Perez', '1565595');
 
-INSERT INTO account (id, username, password, email, first_name, last_name, patient_id, allergies, conditions)
-VALUES (8, 'estudianteespinosa', 'password', 'estudianteespinosa@test.com', 'Estudiante', 'Espinosa', '1970569', 'Penicillin', '');
+INSERT INTO account (id, username, password, email, first_name, last_name, patient_id)
+VALUES (8, 'estudianteespinosa', 'password', 'estudianteespinosa@test.com', 'Estudiante', 'Espinosa', '1970569');
 
-INSERT INTO account (id, username, password, email, first_name, last_name, patient_id, allergies, conditions)
-VALUES (9, 'luismadrid', 'password', 'luismadrid@test.com', 'Luis', 'Madrid', '2508342', 'Penicillin', 'Fever,Rash');
+INSERT INTO account (id, username, password, email, first_name, last_name, patient_id)
+VALUES (9, 'luismadrid', 'password', 'luismadrid@test.com', 'Luis', 'Madrid', '2508342');
 
 alter sequence account_id_seq restart with 10;

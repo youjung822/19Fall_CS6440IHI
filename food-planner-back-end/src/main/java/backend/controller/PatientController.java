@@ -2,6 +2,7 @@ package backend.controller;
 
 import backend.exception.ResourceNotFoundException;
 import backend.model.Patient;
+import backend.operation.SimpleRead;
 import backend.repository.PatientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +16,9 @@ import java.util.Map;
 @RestController
 @RequestMapping("/api")
 public class PatientController {
+    String serverBase ="http://hapi.fhir.org/baseDstu3";
+    SimpleRead reader = new SimpleRead(serverBase);
+
     @Autowired
     private PatientRepository patientRepository;
 
@@ -24,10 +28,15 @@ public class PatientController {
     }
 
     @GetMapping("/patients/{id}")
-    public ResponseEntity<Patient> getPatientById(@PathVariable(value = "id") Long patientId)
+    public ResponseEntity<Patient> getPatientById(@PathVariable(value = "id") Long id)
             throws ResourceNotFoundException {
-        Patient patient = patientRepository.findById(patientId)
-                .orElseThrow(() -> new ResourceNotFoundException("Patient not found: " + patientId));
+        Patient patient = patientRepository
+                .findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Patient not found: " + id));
+
+        patient.setAllergies(reader.getAllergy(patient.getPatientId()));
+        patient.setConditions(reader.getCondition(patient.getPatientId()));
+
         return ResponseEntity.ok().body(patient);
     }
 
@@ -37,10 +46,10 @@ public class PatientController {
     }
 
     @PutMapping("/patients/{id}")
-    public ResponseEntity<Patient> updateUser(@PathVariable(value = "id") Long patientId,
+    public ResponseEntity<Patient> updateUser(@PathVariable(value = "id") Long id,
                                               @Valid @RequestBody Patient patientDetails) throws ResourceNotFoundException {
-        Patient patient = patientRepository.findById(patientId)
-                .orElseThrow(() -> new ResourceNotFoundException("Patient not found: " + patientId));
+        Patient patient = patientRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Patient not found: " + id));
 
         patient.setEmail(patientDetails.getEmail());
         if (patientDetails.getLastName() != null)
@@ -58,10 +67,10 @@ public class PatientController {
     }
 
     @DeleteMapping("/patients/{id}")
-    public Map<String, Boolean> deleteUser(@PathVariable(value = "id") Long patientId)
+    public Map<String, Boolean> deleteUser(@PathVariable(value = "id") Long id)
             throws ResourceNotFoundException {
-        Patient patient = patientRepository.findById(patientId)
-                .orElseThrow(() -> new ResourceNotFoundException("Patient not found: " + patientId));
+        Patient patient = patientRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Patient not found: " + id));
 
         patientRepository.delete(patient);
         Map<String, Boolean> response = new HashMap<>();
@@ -72,10 +81,12 @@ public class PatientController {
     @PostMapping("/login")
     public ResponseEntity<Patient> login(@Valid @RequestBody Patient patientDetails) throws ResourceNotFoundException {
         Patient patient = patientRepository.findByUserName(patientDetails.getUserName());
-        if (patient == null) throw new ResourceNotFoundException("Patient not found: " + patientDetails.getUserName());
 
         if (!patient.getPassword().equals(patientDetails.getPassword()))
             throw new ResourceNotFoundException("Patient userName: " + patientDetails.getUserName() + " has incorrect password!");
+
+        patient.setAllergies(reader.getAllergy(patient.getPatientId()));
+        patient.setConditions(reader.getCondition(patient.getPatientId()));
 
         return ResponseEntity.ok().body(patient);
     }
