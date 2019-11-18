@@ -7,8 +7,9 @@ import { Wrapper, Title, Fields, Content, Creds, Fail, SignUp } from './styles';
 import paths from '../../lib/paths';
 import { setCookie } from '../../lib/cookies';
 import { passwordLogin } from '../../lib/login';
+import { mapAllergies } from '../../lib/allergies';
 
-export default function Login({ setLoggedInUser }) {
+export default function Login({ setLoggedInUser, setAllergies }) {
   const [loggedOn, setLoggedOn] = useState(false);
   const [loggingIn, setLoggingIn] = useState(false);
   const [password, setPassword] = useState('');
@@ -21,8 +22,10 @@ export default function Login({ setLoggedInUser }) {
     const userInfo = await passwordLogin(username, password);
 
     if (userInfo) {
-      const { firstName, lastName } = userInfo;
+      const { firstName, lastName, allergies } = userInfo;
+      // console.log('mapped', mapAllergies(allergies));
       const name = `${firstName} ${lastName}`;
+      setAllergies(mapAllergies(allergies));
       setCookie('username', name);
       setLoggedInUser(name);
       setLoggedOn(true);

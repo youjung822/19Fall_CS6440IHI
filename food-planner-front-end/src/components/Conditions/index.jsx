@@ -3,20 +3,9 @@ import React from 'react';
 import { Wrapper, Content } from './styles';
 import { Header, Select, Chips } from '../';
 
-const suggestions = [
-  'Dairy',
-  'Egg',
-  'Gluten',
-  'Grain',
-  'Peanut',
-  'Seafood',
-  'Sesame',
-  'Shellfish',
-  'Soy',
-  'Sulfite',
-  'Tree Nut',
-  'Wheat'
-].map(suggestion => ({
+import { ALLERGIES } from '../../lib/constants';
+
+const suggestions = ALLERGIES.map(suggestion => ({
   value: suggestion,
   label: suggestion
 }));
