@@ -22,7 +22,15 @@ Frontend URL: https://apps.hdap.gatech.edu/newfoodplanner2frontend/
 Backend URL: https://apps.hdap.gatech.edu/newfoodplanner2backend/  
 
 Database URL: https://apps.hdap.gatech.edu/pgadmin/login?next=%2Fpgadmin%2Fbrowser%2F  
-Database Name: foodplanner2database
+Database Name: foodplanner2database  
+
+# Document
+Backend API document: https://github.gatech.edu/gt-cs6440-hit-fall2019/FoodPlanner2/blob/master/Documents/API.md  
+Deployment Configuration: https://github.gatech.edu/gt-cs6440-hit-fall2019/FoodPlanner2/blob/master/Documents/Deployment.md  
+Design Document: https://github.gatech.edu/gt-cs6440-hit-fall2019/FoodPlanner2/blob/master/Documents/Design.md  
+Project Plan: https://github.gatech.edu/gt-cs6440-hit-fall2019/FoodPlanner2/blob/master/Documents/ProjectPlan.md  
+Test Plan: https://github.gatech.edu/gt-cs6440-hit-fall2019/FoodPlanner2/blob/master/Documents/TestPlan.md  
+Use Case Document: https://github.gatech.edu/gt-cs6440-hit-fall2019/FoodPlanner2/blob/master/Documents/UseCase.md  
 
 # Team Members
 - Donald Ford  
