@@ -35,3 +35,5 @@ Backend URL: https://apps.hdap.gatech.edu/newfoodplanner2backend/
   + Java 1.8
   + SpringBoot 2.1.6.RELEASE
   + Maven 3.6.2
+- Database
+  + postgres 12.0
