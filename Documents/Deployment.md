@@ -1,6 +1,6 @@
 # Deployment
 ## How to deploy to production environment?
-To deploy to HDAP, create a pull new request from master branch to cs6440 or make a change in cs6440 will trigger the automated continuous integration continuous deployment process.
+To deploy to HDAP, create a pull new request from the master branch to cs6440 or make a change in cs6440 will trigger the automated continuous integration continuous deployment process.
 
 ## Deployment Details
 Namespace - foodplanner2
