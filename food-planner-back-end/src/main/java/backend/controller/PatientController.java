@@ -42,6 +42,11 @@ public class PatientController {
 
     @PostMapping("/patients")
     public Patient createPatient(@Valid @RequestBody Patient patient) {
+
+        String patientId = reader.addPatient(patient.getFirstName(), patient.getLastName());
+
+        patient.setPatientId(patientId);
+
         return patientRepository.save(patient);
     }
 

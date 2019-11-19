@@ -1,6 +1,7 @@
 package backend.operation;
 
 import ca.uhn.fhir.context.FhirContext;
+import ca.uhn.fhir.rest.api.MethodOutcome;
 import ca.uhn.fhir.rest.client.api.IGenericClient;
 import ca.uhn.fhir.rest.gclient.ReferenceClientParam;
 import ca.uhn.fhir.rest.gclient.StringClientParam;
@@ -108,5 +109,18 @@ public class SimpleRead {
         }
 
         return conditions.stream().distinct().collect(Collectors.toList());
+    }
+
+    public String addPatient(String firstName, String lastName) {
+        //Place your code here
+        Patient patient = new Patient();
+        patient.addIdentifier().setSystem("urn:mrns").setValue("12345");
+        patient.addName().setFamily(lastName).addGiven(firstName);
+
+        MethodOutcome outcome = client.create()
+                .resource(patient)
+                .prettyPrint()
+                .execute();
+        return outcome.getId().getIdPart();
     }
 }
