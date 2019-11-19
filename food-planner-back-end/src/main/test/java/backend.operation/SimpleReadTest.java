@@ -107,4 +107,15 @@ public class SimpleReadTest extends TestCase {
         List<String> actual_name = reader.getCondition(patientID);
         assertEquals(expected_name, actual_name);
     }
+
+    public void testSimpleRead5() {
+        String serverBase ="http://hapi.fhir.org/baseDstu3";
+        SimpleRead reader = new SimpleRead(serverBase);
+        //do something with the reader to make sure it works...
+        String patientID = "2629194";//find a good patient
+        List<String> allergies = new ArrayList<>();
+        allergies.add("egg");
+        reader.addAllergy(allergies, patientID);
+//        assertEquals(reader.getAllergy(patientID), allergies);
+    }
 }

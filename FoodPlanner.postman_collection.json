@@ -204,7 +204,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"firstName\": \"test2\",\n    \"lastName\": \"test2\",\n    \"email\": \"test2@test.com\",\n    \"userName\": \"test3\",\n    \"password\": \"test3\"\n}",
+					"raw": "{\n    \"firstName\": \"Adam\",\n    \"lastName\": \"Luke\",\n    \"email\": \"adamluke@test.com\",\n    \"userName\": \"adamLuke\",\n    \"password\": \"password\",\n    \"allergies\" : [\n    \t\"banana\",\n    \t\"apple\"\n    \t]\n}",
 					"options": {
 						"raw": {
 							"language": "json"

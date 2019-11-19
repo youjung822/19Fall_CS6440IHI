@@ -47,6 +47,10 @@ public class PatientController {
 
         patient.setPatientId(patientId);
 
+        if (patient.getAllergies().size() >= 1) {
+            reader.addAllergy(patient.getAllergies(), patientId);
+        }
+
         return patientRepository.save(patient);
     }
 

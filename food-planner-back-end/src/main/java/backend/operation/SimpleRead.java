@@ -1,6 +1,7 @@
 package backend.operation;
 
 import ca.uhn.fhir.context.FhirContext;
+import ca.uhn.fhir.model.primitive.IdDt;
 import ca.uhn.fhir.rest.api.MethodOutcome;
 import ca.uhn.fhir.rest.client.api.IGenericClient;
 import ca.uhn.fhir.rest.gclient.ReferenceClientParam;
@@ -74,7 +75,6 @@ public class SimpleRead {
         return list;
     }
 
-
     public List<String> getAllergy(String id) {
         // Hint, there is a method that will return the full name including
         // prefix, first, last, and suffix
@@ -122,5 +122,24 @@ public class SimpleRead {
                 .prettyPrint()
                 .execute();
         return outcome.getId().getIdPart();
+    }
+
+    public void addAllergy(List<String> allergies, String patientId) {
+        for (String allergy : allergies) {
+            AllergyIntolerance allergyIntolerance = new AllergyIntolerance();
+            allergyIntolerance.getCode()
+                    .addCoding()
+                    .setSystem("Custom")
+                    .setCode(Integer.toString(allergy.hashCode()))
+                    .setDisplay(allergy);
+
+            allergyIntolerance.getPatient()
+                    .setReference("Patient/"+patientId);
+
+            MethodOutcome outcome = client.create()
+                    .resource(allergyIntolerance)
+                    .prettyPrint()
+                    .execute();
+        }
     }
 }
