@@ -16,7 +16,7 @@ import {
 import paths from '../../lib/paths';
 import { getCookie } from '../../lib/cookies';
 import { getNutrition } from '../../lib/nutrition';
-import { removeCookie } from '../../lib/cookies';
+import { removeCookie, setCookie } from '../../lib/cookies';
 
 const toggleList = (list, val) => {
   const copy = [...list];
@@ -27,10 +27,18 @@ const toggleList = (list, val) => {
   return copy;
 };
 
+const getCookieArray = cookieName => {
+  return (
+    getCookie(cookieName)
+      .split(',')
+      .filter(s => s !== '') || []
+  );
+};
+
 export default function App() {
   const [username, setUsername] = useState(getCookie('username'));
-  const [allergies, setAllergies] = useState([]);
-  const [ingredients, setIngredients] = useState([]);
+  const [allergies, setAllergies] = useState(getCookieArray('allergies'));
+  const [ingredients, setIngredients] = useState(getCookieArray('ingredients'));
   const [recipes, setRecipes] = useState([]);
   const [cuisine, setCuisine] = useState(null);
   const [filterByCondition, setFilterByCondition] = useState(false);
@@ -39,10 +47,18 @@ export default function App() {
   const [nutritionInfo, setNutritionInfo] = useState(null);
 
   const toggleCondition = value => {
-    setAllergies(toggleList(allergies, value));
+    const newAllergies = toggleList(allergies, value);
+    setAllergies(newAllergies);
+    setCookie('allergies', newAllergies);
+  };
+  const setAllAllergies = allAllergies => {
+    setAllergies(allAllergies);
+    setCookie('allergies', allAllergies);
   };
   const toggleIngredient = value => {
-    setIngredients(toggleList(ingredients, value));
+    const newIngredients = toggleList(ingredients, value);
+    setIngredients(newIngredients);
+    setCookie('ingredients', newIngredients);
   };
   const onViewNutrition = async id => {
     const nutrition = await getNutrition(id);
@@ -52,6 +68,8 @@ export default function App() {
     if (username) {
       setUsername(null);
       removeCookie('username');
+      removeCookie('allergies');
+      removeCookie('ingredients');
       setAllergies([]);
       setIngredients([]);
       setRecipes([]);
@@ -97,7 +115,7 @@ export default function App() {
               <Login
                 {...props}
                 setLoggedInUser={setUsername}
-                setAllergies={setAllergies}
+                setAllergies={setAllAllergies}
               />
             )}
           />
@@ -105,7 +123,12 @@ export default function App() {
             path={paths.createAccount}
             exact
             render={props => (
-              <CreateAccount {...props} setLoggedInUser={setUsername} />
+              <CreateAccount
+                {...props}
+                setLoggedInUser={setUsername}
+                allergies={allergies}
+                toggleCondition={toggleCondition}
+              />
             )}
           />
           <Route

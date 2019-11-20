@@ -12,7 +12,7 @@ import CancelIcon from '@material-ui/icons/Cancel';
 
 const useStyles = makeStyles(theme => ({
   root: {
-    flexGrow: 1,
+    // flexGrow: 1,
     minWidth: 290
   },
   input: {

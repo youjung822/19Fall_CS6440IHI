@@ -5,7 +5,8 @@ export async function createAccount(
   lastName,
   email,
   userName,
-  password
+  password,
+  allergies
 ) {
   try {
     const proxyurl = window.location.href.includes('localhost')
@@ -17,7 +18,8 @@ export async function createAccount(
       lastName,
       email,
       userName,
-      password
+      password,
+      allergies
     };
 
     const response = await fetch(proxyurl + url, {

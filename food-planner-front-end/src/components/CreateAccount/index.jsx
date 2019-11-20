@@ -3,12 +3,24 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { Redirect } from 'react-router-dom';
 
-import { Wrapper, Title, Fields, Content, Fail } from './styles';
+import { Wrapper, Title, Fields, Content, Fail, ChipsWrapper } from './styles';
 import paths from '../../lib/paths';
 import { setCookie } from '../../lib/cookies';
 import { createAccount } from '../../lib/createAccount';
+import { Select, Chips } from '../';
 
-export default function Login({ setLoggedInUser }) {
+import { ALLERGIES } from '../../lib/constants';
+
+const suggestions = ALLERGIES.map(suggestion => ({
+  value: suggestion,
+  label: suggestion
+}));
+
+export default function CreateAccount({
+  allergies,
+  toggleCondition,
+  setLoggedInUser
+}) {
   const [loggedOn, setLoggedOn] = useState(false);
   const [signingUp, setSigningUp] = useState(false);
   const [createError, setCreateError] = useState(false);
@@ -27,7 +39,8 @@ export default function Login({ setLoggedInUser }) {
       lastName,
       email,
       username,
-      password
+      password,
+      allergies
     );
 
     if (userInfo) {
@@ -40,6 +53,14 @@ export default function Login({ setLoggedInUser }) {
     }
 
     setSigningUp(false);
+  };
+
+  const filteredSuggestions = suggestions.filter(
+    ({ value }) => !allergies.includes(value)
+  );
+
+  const handleKeyPress = event => {
+    if (event.key === 'Enter') onLogin();
   };
 
   return (
@@ -55,6 +76,7 @@ export default function Login({ setLoggedInUser }) {
             variant="outlined"
             onChange={e => setFirstName(e.target.value)}
             value={firstName}
+            onKeyDown={handleKeyPress}
           />
           <TextField
             label="Last Name"
@@ -62,6 +84,7 @@ export default function Login({ setLoggedInUser }) {
             variant="outlined"
             onChange={e => setLastName(e.target.value)}
             value={lastName}
+            onKeyDown={handleKeyPress}
           />
           <TextField
             label="Username"
@@ -69,6 +92,7 @@ export default function Login({ setLoggedInUser }) {
             variant="outlined"
             onChange={e => setUsername(e.target.value)}
             value={username}
+            onKeyDown={handleKeyPress}
           />
           <TextField
             label="Password"
@@ -77,6 +101,7 @@ export default function Login({ setLoggedInUser }) {
             variant="outlined"
             onChange={e => setPassword(e.target.value)}
             value={password}
+            onKeyDown={handleKeyPress}
           />
           <TextField
             label="Email"
@@ -84,12 +109,21 @@ export default function Login({ setLoggedInUser }) {
             variant="outlined"
             onChange={e => setEmail(e.target.value)}
             value={email}
+            onKeyDown={handleKeyPress}
           />
         </Fields>
+        <Select
+          label="Allergies"
+          suggestions={filteredSuggestions}
+          onChange={toggleCondition}
+        />
+        <ChipsWrapper>
+          <Chips values={allergies} onDelete={toggleCondition} />
+        </ChipsWrapper>
+        {createError && <Fail>Failed to create account! Please try again</Fail>}
         <Button variant="contained" color="primary" onClick={onLogin}>
           {signingUp ? 'Signing up...' : 'Sign up'}
         </Button>
-        {createError && <Fail>Failed to create account! Please try again</Fail>}
       </Content>
     </Wrapper>
   );

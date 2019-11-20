@@ -84,6 +84,10 @@ export default function Recipes({
     setRecipes(results);
   };
 
+  const handleKeyPress = event => {
+    if (event.key === 'Enter') onSearch();
+  };
+
   return (
     <Wrapper>
       <Header>Recipe Lookup</Header>
@@ -135,13 +139,14 @@ export default function Recipes({
           value={keywords}
           onChange={e => setKeywords(e.target.value)}
           margin="normal"
+          onKeyDown={handleKeyPress}
         />
         <SearchButton>
           <Button
             variant="contained"
             color="primary"
             onClick={onSearch}
-            disabled={!cuisine || !keywords}
+            disabled={!keywords}
           >
             Search
           </Button>
