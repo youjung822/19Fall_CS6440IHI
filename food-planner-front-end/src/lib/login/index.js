@@ -18,17 +18,6 @@ export async function passwordLogin(userName, password) {
 
     const myJson = await response.json();
 
-    console.log(myJson)
-
-    //   allergies: "shrimp"
-    // conditions: "heartburn"
-    // email: "test@test.com"
-    // firstName: "test"
-    // id: 1
-    // lastName: "test"
-    // password: "test"
-    // userName: "test"
-
     return myJson && myJson.userName ? myJson : null;
   } catch (e) {
     return null;

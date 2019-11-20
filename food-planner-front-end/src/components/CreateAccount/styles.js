@@ -18,11 +18,11 @@ export const Content = styled.div`
   width: 400px;
   display: flex;
   flex-direction: column;
-  margin-top: 150px;
+  margin-top: 100px;
   padding: 16px;
   border-radius: 8px;
   background: white;
-  height: 540px;
+  height: 650px;
   position: relative;
   box-shadow: 1px 1px 1px black;
 `;
@@ -45,6 +45,10 @@ export const Fail = styled.div`
   width: 100%;
   text-align: center;
   color: red;
-  padding-top: 12px;
+  padding-bottom: 12px;
   font-size: 18px;
+`;
+
+export const ChipsWrapper = styled.div`
+  flex: 1;
 `;

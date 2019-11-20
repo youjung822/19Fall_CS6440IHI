@@ -23,7 +23,6 @@ export default function Login({ setLoggedInUser, setAllergies }) {
 
     if (userInfo) {
       const { firstName, lastName, allergies } = userInfo;
-      // console.log('mapped', mapAllergies(allergies));
       const name = `${firstName} ${lastName}`;
       setAllergies(mapAllergies(allergies));
       setCookie('username', name);
@@ -34,6 +33,10 @@ export default function Login({ setLoggedInUser, setAllergies }) {
     }
 
     setLoggingIn(false);
+  };
+
+  const handleKeyPress = event => {
+    if (event.key === 'Enter') onLogin();
   };
 
   return (
@@ -50,6 +53,7 @@ export default function Login({ setLoggedInUser, setAllergies }) {
             variant="outlined"
             onChange={e => setUsername(e.target.value)}
             value={username}
+            onKeyDown={handleKeyPress}
           />
           <TextField
             id="outlined-password-input"
@@ -59,6 +63,7 @@ export default function Login({ setLoggedInUser, setAllergies }) {
             variant="outlined"
             onChange={e => setPassword(e.target.value)}
             value={password}
+            onKeyDown={handleKeyPress}
           />
         </Fields>
         <Button variant="contained" color="primary" onClick={onLogin}>
