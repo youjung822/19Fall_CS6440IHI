@@ -39,7 +39,7 @@ Through the left side bar, you will be able to find "My Allergies" page. This wi
 ### 4. My Ingredients
 Similarly, using the left side bar you will be able to find "My Ingredients" page. This will show you previously added ingredients and allow you to edit them. The ingredient search results are pulled from Spoonacular API and the saved list of ingredients are maintained by user. In the same way with allergies, the ingredient data will br preserved when you refresh the page.    
 
-![](./images/5_Ingredient.PNG)
+![](./images/5_Ingredient.png)
 * Search ingredients: Typing a few characters of the ingredient on the search bar will populate a list of matching items.  
 * Add ingredients: By selecting the one from the list, the ingredient will be registered on the bottom of the search bar. 
 * Delete ingredient: Clicking X button next to the saved ingredient will delete the item from the saved list.
@@ -59,7 +59,7 @@ Lastly, on the left side bar, you will find the "Recipe Look up" menu. This page
 
     ![](./images/6_RecipeByIngredient.PNG)
 
-* View recipes: By clicking "View Recipe" button, it will direct you to a web page with detail.
+* View recipes: By clicking "View Recipe" button, it will direct you to a web page with the recipe detail.
 * View Nutrition: By clicking "View Nutrition" button, the application populates a page with the total calories of the recipe and a pie chart of nutritional information.
     
     ![](./images/6_RecipePieChart.PNG)
