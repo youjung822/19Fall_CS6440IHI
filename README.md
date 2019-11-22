@@ -49,5 +49,6 @@ Use Case Document: https://github.gatech.edu/gt-cs6440-hit-fall2019/FoodPlanner2
   + Java 1.8
   + SpringBoot 2.1.6.RELEASE
   + Maven 3.6.2
+  + HAPI FHIR 3.1.0
 - Database
   + postgres 12.0
