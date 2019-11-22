@@ -3,7 +3,7 @@
 **Author**: RunTime Terror
 
 ## Project Goal
-The goal is to build a Web based App called Food Planner. 
+The goal is to build a Web based Food Planner App. 
 
 ## Introduction
 
@@ -12,17 +12,17 @@ Food Planner is a tool to guide people in the direction of meal planning based o
 ## Project Scope
 The scope of this project is to enable a user to login to the Web App and select eligible ingredients/food items based on the condition/allergy they have mentioned.
 
-### **Research**
+### Requirements
 
-We started our research with a discussion with the TA - Taylor. Taylor was able to resolve a lot of our concerns. We had initially thought to just build the App where we would recommend ingredients based on the conditions/allergies selected by the user. But as per our discussion with Taylor (TA) we are now trying to come up with ideas on how to use the ingredients to further recommend various recipes based on the filter of conditions and ingredients. 
-
-Beyond the meeting, our team started doing research on the App and found some similar websites like spoonacular.com or foodplannerapp.com. We got some really good ideas from these Apps, though our App will be different in many ways. 
-
-As we progressed, we have started using APIs of Spoonacular.com and based on further discussions we have pivoted to Allergies instead of Conditions (as of Nov 1, 2019). The App would let the user select their Allergies and Ingredients and then on the Recipe screen, user would be able to search for recipes by establishing filters based on Allergies and Ingredients. The user would also be able to select a cuisine of their choice.
-
-<u>Nov 10, 2019 Updates</u> - Taylor had recommended to setup a login page for the user. Our team had previously setup the front end for the same. This week we worked on to setup the database to store the login credentials and the data for users. This would let the App retain the selections that the user made when the logged in the last time i.e. information like their allergies and ingredients selection. Once the database is ready we will then work to hook up everything from the front end as well (probably next week).
-
-Nov 17, 2019 Updates</u> - Team did research on connecting the FHIR APIs to the Food Planner App to get an exhaustive list of allergies and ingredients. Apart from that we also worked on to find ways to set up the login page and connecting the front end to the login database. Now the App is able to retain the account information of the users who have signed up previously. We had planned to complete all this work last week but due to some configuration issues we had to investigate more ways to achieve the tasks.
+1.  User should be able to launch the Web App.
+2. User can create a new account & login with an existing account.
+3. Upon login, User should see Allergies, Ingredients and Recipe tabs.
+4. User can select various Allergies on the Allergies page.
+5. User can choose various Ingredients on the Ingredients page.
+6. User can go to the Recipe Tab to see recommended Recipes.
+7. On the Recipe screen, User can select the Cuisine.
+8. On the Recipe screen, User can filter based on Allergies and Ingredients.
+9. The App can recommend Recipes based on Cuisine, Allergies and Ingredients.
 
 ## Processes and Communication Channels
 
@@ -33,10 +33,16 @@ The Team has started working on the below activities/deliverables and will be me
 
 ### Project Plan
 ### Requirements Gathering
+
+### Research Document
+
 ### Use Case Model
 ### Design Document
 ### Test Plan
 ### Gantt Chart
+
+### Application Manual
+
 ### Software Development
 ### Verification & Validation
 ### Code Refactoring
