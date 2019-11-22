@@ -126,7 +126,7 @@ In another discussion with our TA – Taylor, he recommended that our App should
 
  
 
- After all these weeks of research our final version of the App is almost ready with the below finalized **Requirements**:
+## After all these weeks of research and development, our final version of the App is Ready with the below finalized **Requirements**:
 
 ·     New Users should be able to Sign Up and create an account.
 
