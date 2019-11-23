@@ -54,6 +54,10 @@ Below presents the architecture as a series of diagrams; Component Diagram and D
 
 ![](./images/fe-diagram.png)
 
+#### Back end application class diagram
+
+![](./images/backendClassDiagram.PNG)
+
 ## 4 User Interface Design
 
 ![](./images/login_design.png)
