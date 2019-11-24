@@ -1,6 +1,6 @@
 # Use Case Model
 
-**Author**: Andrew Lo Team: Runtime Terror
+**Author**: Runtime Terror
 
 ## 1 Use Case Diagram
 
