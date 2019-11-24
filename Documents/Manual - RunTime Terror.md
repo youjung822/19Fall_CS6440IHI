@@ -28,6 +28,7 @@
     * [8.1. Production Servers](#production-servers)
     * [8.2. Local Servers](#local-servers)
     * [8.3. Postman Script](#postman-script)
+    * [8.4. API Document](#api-document)
 * [9. Version](#version)
 
 
@@ -225,6 +226,12 @@ Please refer to section 1 of the Special Instructions document.
 URL: https://github.gatech.edu/gt-cs6440-hit-fall2019/FoodPlanner2/blob/master/Final%20Delivery/Special%20Instructions.pdf
 
 Script URL: https://github.gatech.edu/gt-cs6440-hit-fall2019/FoodPlanner2/blob/master/FoodPlanner.postman_collection.json
+
+<a name="api-document"></a>
+
+#### 8.4. API Document
+For all API functionalities, expected results and possible errors are all located in the API.pdf document below.
+URL: https://github.gatech.edu/gt-cs6440-hit-fall2019/FoodPlanner2/blob/master/Final%20Delivery/API.pdf
 
 <a name="version"></a>
 
