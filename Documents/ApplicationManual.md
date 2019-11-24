@@ -48,18 +48,19 @@ Similarly, using the left side bar you will be able to find "My Ingredients" pag
 Lastly, on the left side bar, you will find the "Recipe Look up" menu. This page will take your allergies and ingredients as input and recommend the meal planning options. The recipes are received from Spoonacular API.   
 * Search recipes: You can search by type of "Cuisine" and "Recipe Keyword". If you do not enter any information into these search fields, the query will return all categories.The user can also filter results by their "Allergies" and their "Ingredients".
 
-    As shown in the example, a cuisine of American and keyword of pizza was used and resulted in three hits that matched those inputs without the "Allergy" or "Ingredient" filter set. 
-    ![](./images/6_Recipe.PNG)
+As shown in the example, a cuisine of American and keyword of pizza was used and resulted in three hits that matched those inputs without the "Allergy" or "Ingredient" filter set. 
 
-    Once the allergy filter is enabled, two pizzas that contain seafood and eggs are removed from the results based on the users saved allergies in their profile. 
+![](./images/6_Recipe.png)
 
-    ![](./images/6_RecipeByAllergies.PNG)
+Once the allergy filter is enabled, two pizzas that contain seafood and eggs are removed from the results based on the users saved allergies in their profile. 
 
-    When the "Ingredients" filter is enabled, the pizza that contains salami is the only result based on the saved ingredients for the user profile.
+![](./images/6_RecipeByAllergies.png)
 
-    ![](./images/6_RecipeByIngredient.PNG)
+When the "Ingredients" filter is enabled, the pizza that contains salami is the only result based on the saved ingredients for the user profile.
+
+![](./images/6_RecipeByIngredient.png)
 
 * View recipes: By clicking "View Recipe" button, it will direct you to a web page with the recipe detail.
 * View Nutrition: By clicking "View Nutrition" button, the application populates a page with the total calories of the recipe and a pie chart of nutritional information.
     
-    ![](./images/6_RecipePieChart.PNG)
+![](./images/6_RecipePieChart.PNG)
