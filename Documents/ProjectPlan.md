@@ -31,24 +31,17 @@ The first step was to meet with the assigned TA to our Food Planner App and disc
 
 The Team has started working on the below activities/deliverables and will be meeting twice a week to discuss and review the progress and future tasks.
 
-### Project Plan
-### Requirements Gathering
-
-### Research Document
-
-### Use Case Model
-### Design Document
-### Test Plan
-### Gantt Chart
-
-### Application Manual
-
-### Software Development
-### Verification & Validation
-### Code Refactoring
-### Feature Deployment
-
-
+- Requirements Gathering
+- Research Document
+- Use Case Model
+- Design Document
+- Test Plan
+- Gantt Chart
+- Application Manual
+- Software Development
+- Verification & Validation
+- Code Refactoring
+- Feature Deployment
 
 ## Team
 

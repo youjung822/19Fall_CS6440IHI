@@ -36,29 +36,25 @@ HDAP has an automated development pipeline for Continuous Integration(CI) and Co
 - Kubernetes –open-source system for automating deployment, scaling, and management of containerized applications.
 - Apache HTTP – open source HTTP server used by HDAP for routing requests to deployed containers
 
-## 2 Architectural Design
+## 2 Architectural Design  
 
 Below presents the architecture as a series of diagrams; Component Diagram and Deployment Diagram.
 
-### 2.1 Component Diagram
+### 2.1 Component Diagram  
 
 ![](./images/component-diagram.png)
 
-### 2.2 Deployment Diagram
-
+### 2.2 Deployment Diagram  
 ![](./images/deployment-diagram.png)
 
-## 3 Class and Other Diagrams
-
-#### Front end application component diagram
-
+## 3 Class and Other Diagrams  
+### Front end application component diagram
 ![](./images/fe-diagram.png)
 
-#### Back end application class diagram
-
+##Back end application class diagram  
 ![](./images/backendClassDiagram.PNG)
 
-## 4 User Interface Design
+## 4 User Interface Design  
 
 ![](./images/login_design.png)
 
