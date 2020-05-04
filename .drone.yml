@@ -1,0 +1,79 @@
+kind: pipeline
+name: default
+
+steps:
+# Run Java Unit Tests and build WAR file
+- name: build_java_server
+  image: maven:3.6.1-jdk-8
+  commands:
+    - cd food-planner-back-end
+    - mvn clean package
+
+# Create Docker image and push to HDAP Docker registry
+- name: deploy_front_end_application_image
+  image: plugins/docker
+  settings:
+    repo: build.hdap.gatech.edu/foodplanner2/food-planner-front-end
+    context: food-planner-front-end
+    dockerfile: food-planner-front-end/Dockerfile
+    tags:
+      - latest
+
+- name: deploy_back_end_application_image
+  image: plugins/docker
+  settings:
+    repo: build.hdap.gatech.edu/foodplanner2/food-planner-back-end
+    context: food-planner-back-end
+    dockerfile: food-planner-back-end/Dockerfile
+    tags:
+      - latest
+
+- name: deploy_database
+  image: plugins/docker
+  settings:
+    repo: build.hdap.gatech.edu/foodplanner2/food-planner-database
+    context: food-planner-database
+    dockerfile: food-planner-database/Dockerfile
+    tags:
+      - latest
+
+  # Pull down the templates for deployment to HDAP K8S
+- name: get_chart_builder
+  image: docker:git
+  commands:
+    - git clone -b cs6440 https://github.gatech.edu/es130/HDAP_helm_deploy_templates.git
+
+  # Set the namespace to use for deployment
+- name: copy_namespace
+  image: busybox:1.31
+  commands:
+    - userns=`awk '/namespace:/{print $2}' ./values.yaml`
+    - sed -i "s/REPLACE_WITH_NAMESPACE/$userns/g" ./HDAP_helm_deploy_templates/deploy/Dockerfile
+
+  # Deploy the application to HDAP K8S
+- name: deploy_to_k8s
+  image: docker:dind
+  volumes:
+    - name: dockersock
+      path: /var/run
+  commands:
+    - sleep 10
+    - docker build -t deploytok8s  -f ./HDAP_helm_deploy_templates/deploy/Dockerfile .
+    - docker run deploytok8s
+
+services:
+  - name: docker
+    image: docker:dind
+    privileged: true
+    volumes:
+      - name: dockersock
+        path: /var/run
+
+volumes:
+  - name: dockersock
+    temp: {}
+trigger:
+  branch:
+    - cs6440
+  event:
+    - push
